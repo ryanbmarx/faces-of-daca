@@ -33,9 +33,11 @@ $border-radius--large: $grid-gap / 2;
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
 @import 'base-mixins';
 
-@import 'scaffolding';
-@import 'footer';
-@import 'navbar';
+@import 'base/scaffolding';
+@import 'base/footer';
+@import 'base/navbar';
+
+// UTILITIES
 
 // UTILITIES
 
