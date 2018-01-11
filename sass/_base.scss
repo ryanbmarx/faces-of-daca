@@ -37,6 +37,8 @@ $border-radius--large: $grid-gap / 2;
 @import 'footer';
 @import 'navbar';
 
+// UTILITIES
+
 body{
 	margin: 0;
 	padding: var(--nav-inner-height) 0 0 0;
@@ -55,13 +57,26 @@ body{
   border: 0;
 }
 
+// TYPOGRAPHY
 
-.trb_mainContent .credits {
+p{
+	font: 15px/1.6em $serif-fonts;
+	margin: 0 0 #{$grid-gap / 2} 0;
+}
+
+
+.container--credits {
 	p{
 		@include agate();
 	}
 }
 
+@media all and (min-width: $phablet-min-width){
+	p{
+		font-size: 18px;
+		line-height: 1.5em;
+	}
+}
 
 @media all and (min-width: $tablet-min-width){
 	// ONLY CHANGES FOR TABLETS + DESKTOPS	
