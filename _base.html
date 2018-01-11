@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+    {% block meta scoped%}
+        <meta charset="UTF-8" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% set url = "http://" ~ ROOT_URL ~ "/" ~ PATH %}
+        <link rel="canonical" href="{{ url }}" />
+        {# <link rel="shortcut icon" href="img/favicon{% if PREVIEW_SERVER %}-preview{% endif %}.ico" /> #}
+        <title>{{ title }} -- Chicago Tribune</title>
+    
+        {# TODO: CHeck on google site verification #}
+        <meta name="google-site-verification" content="TKTKTK">
+    {% endblock meta %}
+    
+    {% block prefetch %}
+        {# TODO: Check on preconnect, dns-prefetch #}
+        <link rel="dns-prefetch" href="//static.chartbeat.com">
+        <link rel="dns-prefetch" href="//www.google-analytics.com">
+        <link rel="preconnect" href="https://www.google-analytics.com">
+        <link rel="dns-prefetch" href="http://ssor.tribdss.com">
+        <link rel="dns-prefetch" href="http://www.tribdss.com">
+    {% endblock prefetch %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    {% endblock stylesheets %}
+
+    {% block structured_data_meta scoped %}
+        {# METS/STRUCTURED DATA #}
+        <meta name="description" content="TKTKTKTK" />
+        <meta name="keywords" content="{{ seo_keywords }}, crime, shootings, violence, data, chicago" />
+        <meta name="author" content="TKTKTKTK" />
+        <meta property="image" content="http://{{ ROOT_URL}}/img/thumb.jpg" />
+        <meta property="article:published_time" content="TKTKTK" />
+        <meta property="article:modified_time" content="TKTKTK" />
+    {% endblock structured_data_meta %}
+
+    {% block opengraph scoped %}
+        {# OPENGRAPH #}
+        {# TODO: Think of way to dynamically fetch thumbnail image dimensions #}
+        {# https://developers.facebook.com/docs/sharing/best-practices/ #}
+        <meta property="og:url" content="http://{{ ROOT_URL }}/{{ PATH }}" />
+        <meta property="og:type" content="article" /> 
+        <meta property="og:title" content="TKTK" />
+        <meta property="og:description" content="TKTK" />
+        <meta property="og:image" content="http://{{ ROOT_URL}}/img/thumb.jpg" />
+        <meta name="og:image:alt" content="TKTK" />
+        <meta name="og:image:height" content="TKTK" />
+        <meta name="og:image:width" content="TKTK" />
+    {% endblock opengraph %}
+
+    {% block twitter scoped%}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@chicagotribune" />
+        <meta name="twitter:title" content="TKTKTK" />
+        <meta name="twitter:description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et doloreorum." />
+        <meta name="twitter:image" content="http://{{ ROOT_URL}}/img/thumb.jpg" />
+        <meta name="twitter:image:alt" content="TKTKTK" />
+        <meta name="twitter:creator" content="@chicagotribune" />
+        <meta name="twitter:creator" content="@chitribgraphics" />
+    {% endblock twitter %}
+
+    {% block library_scripts %}
+    <script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
+    {# FORGET WHAT THIS IS FOR #}
+    <script src="http://ssor.tribdss.com/reg/tribune/chinews-apps.min.js"></script>
+    {# METER #}
+    <script type="text/javascript" src="//www.tribdss.com/meter/ctcngux.min.js" defer async></script>
+    {# For the adverts #}
+    {# <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> #}
+    {# <script src="//media.apps.chicagotribune.com/ads/v2.1.4/ads.min.js" defer async></script> #}
+    <script>
+        window.ROOT_URL = "http://{{ ROOT_URL }}";
+    </script>
+    {% endblock %}
+</head>
+
+<body data-ad-path="news" data-ad-ptype="s" data-ad-iframe-url="./ad-iframe.html" itemscope itemtype="http://schema.org/NewsArticle">
+    <div style="display:none;height:0;visibility:invisible;">
+        {% include 'img/sprite.svg' ignore missing %}
+    </div>
+    {% block nav scoped%}{% include "subtemplates/_navbar.html" %}{% endblock %}
+
+    {% block content %}{% endblock content %}
+
+    {% block footer %}
+    <footer class='page-footer'>
+        {% include "subtemplates/_footer.html" %}
+    </footer>
+    {% endblock footer %}
+   
+    <meta itemprop="image" content="http://{{ ROOT_URL }}/img/thumb.jpg" />
+    
+    {% block scripts %}
+    <script src="//{{ ROOT_URL }}/js/app.min.js"></script>
+    {% endblock scripts %}
+    
+    {% block omniture_config %}
+    {# OMNITURE #}
+      {# <script type="text/javascript">
+        ((((window.trb || (window.trb = {})).data || (trb.data = {})).metrics || (trb.data.metrics = {})).thirdparty = {
+                pageName: 'ct:apps:news:{{ name }}:articleproject.',
+                channel: 'news',
+                server: 'graphics.chicagotribune.com',
+                hier1: 'chicagotribune:news',
+                hier2: 'news',
+                prop1: 'D=pageName',
+                prop2: 'news',
+                prop38: 'articleproject',
+                prop57: 'D=c38',
+                prop59: '',
+                eVar20: 'chicagotribune',
+                eVar21: 'D=c38',
+                eVar34: 'D=ch',
+                eVar35: 'D=pageName',
+                events:''
+        });  
+    </script> #}
+    {% endblock omniture_config %}
+
+    {% block chartbeat_config %}
+    {# CHARTBEAT #}
+      {#
+      <script type='text/javascript'>
+        var _sf_async_config = _sf_async_config || {};
+        
+
+        var pageTitle = "<community area> (crime site)";
+
+        _sf_async_config.uid = 25745 
+        _sf_async_config.domain = 'chicagotribune.com'; 
+        _sf_async_config.useCanonical = true;
+        _sf_async_config.sections = 'Data, Dataviz'; 
+        _sf_async_config.authors = 'Tribune Dataviz';
+        _sf_async_config.title = pageTitle;
+        
+        (function() {
+            function loadChartbeat() {
+                var e = document.createElement('script');
+                e.setAttribute('language', 'javascript');
+                e.setAttribute('type', 'text/javascript');
+                e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+                document.body.appendChild(e);
+            }
+            var oldonload = window.onload;
+            window.onload = (typeof window.onload != 'function') ?
+                loadChartbeat : function() {
+                    oldonload();
+                    loadChartbeat();
+                };
+        })();
+      </script>
+      #}
+      {% endblock chartbeat_config %}
+  </body>
+  </html>
+
+{# 
+
+OMNITURE
+CHARTBEAT
+GOOGLE ANALYTICS
+ADS
+METER
+
+OMNITURE CUSTOM LINK TRACKS
+
+PUBLISH TIME
+UPDATE TIME
+
+DATA VALID TIME
+
+PUB A STORYLINK OR CUSTOM BLURB FOR EACH ITEM
+
+ADD IMAGE TO THE DESIGN?
+
+Add schema place info?
+rel='dns-prefetch'??
+#}

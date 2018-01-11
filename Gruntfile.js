@@ -6,8 +6,7 @@ module.exports = function(grunt) {
   // You'll also have to install them using a command similar to:
   //     npm install --save jquery
   var VENDOR_LIBRARIES = [
-    //'jquery',
-    //'underscore'
+
   ];
 
   config.browserify = {
@@ -71,7 +70,12 @@ module.exports = function(grunt) {
     options: {
       outputStyle: 'compressed',
       sourceMap: true,
-      includePaths: [ 'sass/', 'node_modules/trib-styles/sass/' ]
+      includePaths: [ 
+        'sass/', 
+        'node_modules/trib-styles/sass/',
+        'node_modules/leaflet/dist/', 
+        'node_modules/styleselect/scss/' 
+      ]
     },
     app: {
       files: {
@@ -110,18 +114,35 @@ module.exports = function(grunt) {
     js: {
       files: ['js/src/**/*.js'],
       tasks: ['browserify:app']
+    },
+    svg: {
+      files: ['img/src/**/*.svg'],
+      tasks: ['svgstore']
     }
+  };
+
+ config.svgstore = {
+    options: {
+      cleanup:true,
+      cleanupdefs:true
+    },
+    min: {
+      // Target-specific file lists and/or options go here. 
+      src:['img/src/**/*.svg'],
+      dest:'img/sprite.svg'
+    },
   };
 
   grunt.initConfig(config);
 
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-svgstore');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
 
   var defaultTasks = [];
-
+  defaultTasks.push('svgstore');
   defaultTasks.push('sass');
   defaultTasks.push('browserify');
   defaultTasks.push('postcss');

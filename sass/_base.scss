@@ -1,0 +1,72 @@
+// Enables Tribune colors, but is required for everything.
+@import 'base-variables';
+
+// ---- ADD MORE VARIABLES HERE ---------------------------------------------
+
+// Breakpoints
+$phablet-min-width:450px !default;
+$tablet-min-width:650px !default;
+$desktop-min-width:850px !default;
+
+// TYPOGRAPHY
+$sans-serif-fonts: "Arial", "Helvetica", sans-serif;
+$serif-fonts: "Georgia", serif;
+
+// SCAFFOLDING
+$grid-gap: 30px;
+$container-max-width: 1500px;
+$container_padding_h: $grid-gap / 2;
+
+// FOOTER
+$footer-background-color: $trib-blue1 !default;
+
+// NAVBAR
+$navbar_background_color: $trib-blue2 !default;
+$navbar_inner_height: 40px !default; // This does NOT include padding top/bottom
+$navbar_inner_height--mobile: 30px !default; // This does NOT include padding top/bottom
+$navbar_tab_width: 260px !default;
+$navbar_padding_h: 0 !default;
+$navbar_padding_v: 10px !default;
+$border-radius--small: 5px;
+$border-radius--large: $grid-gap / 2;
+
+// Required for everything, too, but can be broken down into smaller explicit imports if desired. 
+@import 'base-mixins';
+
+@import 'scaffolding';
+@import 'footer';
+@import 'navbar';
+
+body{
+	margin: 0;
+	padding: var(--nav-inner-height) 0 0 0;
+}
+
+
+.sr-only{
+	// Use this to hide elements from everything except screen readers.
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+
+.trb_mainContent .credits {
+	p{
+		@include agate();
+	}
+}
+
+
+@media all and (min-width: $tablet-min-width){
+	// ONLY CHANGES FOR TABLETS + DESKTOPS	
+}
+
+@media all and (min-width: $desktop-min-width){
+	// ONLY CHANGES FOR DESKTOPS
+}

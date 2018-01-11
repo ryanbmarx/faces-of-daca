@@ -3,8 +3,8 @@
 
 // ---- ADD MORE VARIABLES HERE ---------------------------------------------
 // Breakpoints
-$tablet-min-width:450px;
-$desktop-min-width:850px;
+// $tablet-min-width:450px;
+// $desktop-min-width:850px;
 
 
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
@@ -13,18 +13,8 @@ $desktop-min-width:850px;
 // ---- MAKE OR IMPORT MORE MIXINS HERE ---------------------------------------------
 
 
-// ---- TRIB CLASSES, UNCOMMENT THE ONES YOU WANT ---------------------------------------------
-// @import 'ngux-visibility-toggles';
-// @import 'trib-bulletbox';
-// @import 'trib-buttons';
-// @import 'trib-colors';
-// @import 'trib-images-charts';
-// @import 'trib-legends';
-// @import 'trib-skeleton';
-// @import 'trib-tables';
-// @import 'trib-timeline-basic';
-// @import 'trib-typography';
-// @import 'trib-utilities';
+@import 'base';
+
 
 
 // ---- IMPORT PROJECT STYLES FROM PARTIAL FILES HERE ---------------------------------------------
