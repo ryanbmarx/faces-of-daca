@@ -21,18 +21,16 @@
 {% block content %}
 {# <div class="advert top-ad" data-ad-type="leaderboard"></div> #}
     <section class='container intro'>
+        <div class='intro__video'>
+            <video
+                autoplay muted loop playsinline
+                {# poster='img/poster.jpg' #}
+                title="Chicago Tribune: {{ title }}">
+                <source src="img/intro.webm" type="video/webm">
+                <source src="img/intro.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class='headline-wrapper'>
-        <video 
-            class='intro__video' 
-            autoplay muted loop playsinline
-            poster='img/poster.jpg'
-            
-            title="Chicago Tribune: {{ title }}">
-
-            <source src="img/intro.webm" type="video/webm">
-            <source src="img/intro.mp4" type="video/mp4">
-        </video>
-
             
                 <h1 itemprop="headline" class="headline">
                     <span class='headline__faces'>faces</span>

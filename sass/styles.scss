@@ -40,6 +40,72 @@ body{
 	background:$profile-background;
 }
 
+.intro{
+	// background: #111;
+	padding: 0;
+	color:white;
+	position: relative;
+	
+	&__video{
+		width: 100%;
+		display: block;
+		position:absolute;
+		top: 0;
+		left:0;
+		z-index: -1;
+		video{
+			width: 100%;
+			display:block;
+		}
+		&:after{
+			// Tjis is the gradient mask
+			content:"";
+			display: block;
+			height: 5vh;
+			width: 100%;
+			// background-image: linear-gradient(to top, black, transparent);
+			transform: translate(0,-100%);
+			opacity: .7;
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+	}
+
+}
+
+.headline-wrapper{
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: center;
+	// position:relative;
+	box-sizing:border-box;
+	padding: 0 #{$grid-gap * 2}
+}
+
+.headline{
+	color:white;
+	font-weight: normal;
+	font-style: italic;
+	&__faces{
+		width: 100%;
+		font-size: 130px;
+		// font-weight: normal;
+		// font-style: italic;
+	}
+	&__of{
+		font-size: 35px;
+		transform: translate(0,-8px);
+	}
+
+	&__daca{
+		font-size: 130px;
+		text-transform: uppercase;
+		line-height: .59em;
+	}
+}
+
 .container--content{
 	padding:0;
 }
