@@ -3,6 +3,37 @@
 """
 Tarbell project configuration
 """
+from flask import Blueprint, g, render_template
+import ftfy
+import jinja2
+# import xlrd
+# from markupsafe import Markup
+# import json
+# import datetime
+
+# For the image sizing
+from PIL import Image
+
+blueprint = Blueprint('faces-of-daca', __name__)
+
+# @blueprint.app_template_global('get_labels')
+# @blueprint.app_template_filter()
+# @jinja2.contextfilter
+@blueprint.app_template_filter('is_vertical_photo')
+def is_vertical_photo(photo):
+	"""
+	We need to know if the photo is vertical for style reasons. 
+	Return true if it is.
+	"""
+	try:
+		im = Image.open("img/people/" + photo)
+		width,height = im.size
+		if width > height:
+			return False
+		return True
+	except IOError:
+		print("Can't find ", photo)
+
 
 # Google spreadsheet key
 SPREADSHEET_KEY = "1t8-JGai_adp4dzj8wO4KvvDrFYd8ThRHdwQOsFXZScE"

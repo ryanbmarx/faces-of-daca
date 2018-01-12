@@ -11,9 +11,26 @@
         </div>
     </section>
     <section class='container container--content'>
-        <div class='river'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatem tempore molestiae, et quos porro, cumque esse tenetur, ratione quia eius iure quo quasi, laborum. Et maxime quos magni, mollitia.</p>        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatem tempore molestiae, et quos porro, cumque esse tenetur, ratione quia eius iure quo quasi, laborum. Et maxime quos magni, mollitia.</p>        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatem tempore molestiae, et quos porro, cumque esse tenetur, ratione quia eius iure quo quasi, laborum. Et maxime quos magni, mollitia.</p>        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatem tempore molestiae, et quos porro, cumque esse tenetur, ratione quia eius iure quo quasi, laborum. Et maxime quos magni, mollitia.</p>        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatem tempore molestiae, et quos porro, cumque esse tenetur, ratione quia eius iure quo quasi, laborum. Et maxime quos magni, mollitia.</p>        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatem tempore molestiae, et quos porro, cumque esse tenetur, ratione quia eius iure quo quasi, laborum. Et maxime quos magni, mollitia.</p>        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatem tempore molestiae, et quos porro, cumque esse tenetur, ratione quia eius iure quo quasi, laborum. Et maxime quos magni, mollitia.</p>        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam voluptatem tempore molestiae, et quos porro, cumque esse tenetur, ratione quia eius iure quo quasi, laborum. Et maxime quos magni, mollitia.</p>
-        </div>
+       {% for p in profiles if p.display == 1 %}
+            {% set is_vertical = p.photos|is_vertical_photo %}    
+            {% if is_vertical %}
+                {% set add_class = "profile--vertical" %}    
+            {% else %}
+                {% set add_class = "" %}    
+            {% endif %}
+            <div class='profile {{ add_class }}'>
+                <img class='profile__image' src="http://{{ ROOT_URL }}/img/people/{{ p.photos }}" />
+                <div class='profile__text'>
+                    <h2 class='profile__name'>{{ p.name }}</h2>
+                    <p class='profile__age'>{{ p.age }}</p>
+                    {% if p.full_transcript %}
+                        <blockquote class='profile__quote'>
+                            {{ p.full_transcript|markdown }}
+                        </blockquote>
+                    {% endif %}
+                </div>
+            </div>
+       {% endfor %}
     </section>
     <section class='container container--credits'>
         <div class='river'>

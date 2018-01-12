@@ -7,8 +7,8 @@
 // Breakpoints
 // $tablet-min-width:450px;
 // $desktop-min-width:850px;
-
-
+$profile-background: black;
+$navbar_background_color: black;
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
 @import 'base-mixins';
 
@@ -20,11 +20,15 @@
 
 
 // ---- IMPORT PROJECT STYLES FROM PARTIAL FILES HERE ---------------------------------------------
-
+@import 'profile';
 
 
 // ---- WRITE MORE PROJECT STYLES HERE ---------------------------------------------
 // MOBILE/DEFAULT STYLES ARE HERE.
+
+.container--content{
+	padding:0;
+}
 
 
 .trb_mainContent .credits {
