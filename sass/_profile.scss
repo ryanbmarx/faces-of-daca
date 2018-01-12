@@ -2,39 +2,105 @@
 ///                 minumum of 35px and maximum of 150px
 ///  @include responsive-font(5vw, 35px, 150px, 50px);
 
+.profiles{
+	display:flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	justify-content: space-between;
+}
+
 .profile{
-	min-height: 200vh;
+	margin: 0 0 $grid-gap 0;
 	background: $profile-background;
 	box-sizing: border-box;
 	color: white; 
-	padding: $grid-gap 0;
 	position: relative;
+	width:100%;
 
 	&__image{
 		width: 100%;
 		position: sticky;
-		top: var(--nav-inner-height);
-		// top: 50%;
-		// transform: translate(0, -50%);
-		z-index: 2;
+		margin: 0 0 #{$grid-gap / 2} 0;
 	}
 
 	&__text{
+		margin: 0;
+		// z-index: 100;
+	    // position: relative;
+	    // text-shadow: 0 0 3px rgba(black, .9);
+	}
+
+	&__name{
+		@include serif-text(25px, 1.3em, normal);
+		color: white;
+		font-style: italic;
+		margin: 0 0 #{$grid-gap / 2} 0
+	}
+
+}
+
+.profile.profile--solo{
+	// The large, scrolly kind
+	min-height: 200vh;
+	padding: $grid-gap 0;
+    flex-basis: 100%;
+
+	.profile__name{
+		@include responsive-font(5vw, 35px, 150px, 50px);
+	}
+	
+	.profile__image{
+		position: sticky;
+		top: var(--nav-inner-height);
+		z-index: 2;
+		margin: 0;
+
+	}
+
+	.profile__text{
 		margin: 0 0 0 $grid-gap;
 		z-index: 100;
 	    position: relative;
 	    text-shadow: 0 0 3px rgba(black, .9);
+        max-width: 60%;
 	}
 
-	&__name{
-		@include responsive-font(5vw, 35px, 150px, 50px);
-		font-weight: normal;
-		font-style: italic;
-	}
-
-	&__quote{
+	.profile__quote{
 		padding: 100vh 0;
+	    z-index: 1000;
+	    position: relative;
+		max-width: 60%;
+		
+		&-icon{
+			fill: white;
+			width: 75px;
+			height: 75px;
+		}
+
+		p{
+			@include responsive-font(1.5vw, 18px, 30px, 30px);
+			font-style: italic;
+		    font-weight: normal;
+		    line-height: 1.9em;
+		}
 	}
+}
+
+
+.profile--trio{
+	// Makes them three-across
+    width: calc((100% - #{$grid-gap * 2}) / 3);
+
+}
+
+.profile--duo{
+	// Makes them three-across
+	width: calc((100% - #{$grid-gap}) / 2);
+}
+
+.profile--quartet{
+	// Makes them three-across
+	width: calc((100% - #{$grid-gap * 3}) / 4);
 }
 
 .profile--vertical.profile{
@@ -51,6 +117,10 @@
 		transform: none;
 		position: static;
 		position: relative;
+	}
+
+	.profile__quote{
+		padding: $grid-gap 0;
 	}
 
 }

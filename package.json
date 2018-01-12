@@ -9,7 +9,7 @@
     "watch": "grunt watch",
     "publish": "grunt && tarbell publish",
     "publish:production": "grunt && tarbell publish production",
-    "postinstall":"pip install -r requirements.txt"
+    "postinstall":"pip install pillow"
   },
   "repository": {
     "type": "git",

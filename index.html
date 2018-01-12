@@ -8,27 +8,41 @@
             <h1 itemprop="headline">Welcome to Tarbell!</h1>
             <p>Brought to you by <span itemprop="author">the Chicago Tribune News Apps team</span></p>
             <p>Updated last <span itemprop="datePublished">July 15, 2014</span></p>
+        {{intro|markdown}}
+
         </div>
     </section>
-    <section class='container container--content'>
-       {% for p in profiles if p.display == 1 %}
+
+    <section class='container container--content profiles'>
+       {% for profile in profiles|sort(False, attribute="display_order") if profile.display == 1 %}
+
+            {% set p = profile %}
             {% set is_vertical = p.photos|is_vertical_photo %}    
             {% if is_vertical %}
                 {% set add_class = "profile--vertical" %}    
             {% else %}
                 {% set add_class = "" %}    
             {% endif %}
-            <div class='profile {{ add_class }}'>
+            <div id="{{ p.id }}" class='profile profile--{{ p.display_type }} {{ add_class }}'>
                 <img class='profile__image' src="http://{{ ROOT_URL }}/img/people/{{ p.photos }}" />
                 <div class='profile__text'>
+                    {% include 'subtemplates/_social-share.html' %}
                     <h2 class='profile__name'>{{ p.name }}</h2>
-                    <p class='profile__age'>{{ p.age }}</p>
-                    {% if p.full_transcript %}
+                    <p class='profile__age'>Is a {{ p.age }}-year-old {{ p.current_occupation }}. They came to the United States from {{ p.country }} at {{ p.age_arrived }}.</p>
+                    {% if p.full_transcript and p.display_type != "solo" %}
                         <blockquote class='profile__quote'>
                             {{ p.full_transcript|markdown }}
                         </blockquote>
                     {% endif %}
                 </div>
+                {% if p.full_transcript and p.display_type == "solo" %}
+                    <blockquote class='profile__quote'>
+                        <svg class='profile__quote-icon'>
+                            <use xlink:href="#quote" />
+                        </svg>
+                        {{ p.full_transcript|markdown }}
+                    </blockquote>
+                {% endif %}
             </div>
        {% endfor %}
     </section>

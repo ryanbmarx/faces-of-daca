@@ -1,0 +1,39 @@
+{% macro social_icon(network, p) %}
+	<li class='network network--{{ network.slug|lower }}'>
+		<a href="{{ network.url|urlencode }}" aria-label="Share {{ p.name }} on {{ network.network }}">
+			<svg class='network__icon' viewbox="0 0 30 30">
+				<use xlink:href="#{{ network.slug|lower }}"/>
+			</svg>
+			<span class="sr-only">Share {{ p.name }} on {{ network.network }} </span>
+		</a>
+	</li>
+{% endmacro %}
+
+{% set target_url = "http://" + ROOT_URL + "#" + p.id %}
+
+{% set networks = [
+	{
+		"network":"Facebook",
+		"url":"http://www.facebook.com/sharer.php?u=" + target_url + "&t=Meet " + p.name + ", " + share_sentence,
+		"slug":"facebook"
+	},{
+		"network":"Twitter",
+		"url":"http://twitter.com/share?url=" + target_url + "&text=Meet " + p.name + ", " + share_sentence,
+		"slug":"twitter"
+	},{
+		"network":"Google+",
+		"url":"http://plus.google.com/share?url=" + target_url,
+		"slug":"google"
+	},{
+		"network":"Email",
+		"url":"mailto:?subject=Meet " + p.name + ", " + share_sentence + "&body=" ~ target_url,
+		"slug":"email"
+	}
+]%}
+
+
+<ul class='social-networks social-networks--share'>
+	{% for n in networks %}
+		{{ social_icon(n, p) }}		
+	{% endfor %}
+</ul>

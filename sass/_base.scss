@@ -30,12 +30,23 @@ $navbar_padding_v: 10px !default;
 $border-radius--small: 5px;
 $border-radius--large: $grid-gap / 2;
 
+// SOCIAL SHARE ICONS
+
+$social_icon_base_color: $trib-gray3 !default;
+$social_colors: (
+	twitter: #76A9EA,
+	facebook: #475993,
+	google: #DC4E41,
+	email: black
+) !default;
+
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
 @import 'base-mixins';
 
 @import 'base/scaffolding';
 @import 'base/footer';
 @import 'base/navbar';
+@import 'base/social';
 
 // UTILITIES
 

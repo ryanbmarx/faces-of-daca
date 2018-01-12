@@ -8,7 +8,17 @@
 // $tablet-min-width:450px;
 // $desktop-min-width:850px;
 $profile-background: black;
-$navbar_background_color: black;
+$navbar_background_color: lighten($profile-background, 10%);
+
+$social_icon_base_color: #333;
+
+$social_colors: (
+	twitter: #76A9EA,
+	facebook: #475993,
+	google: #DC4E41,
+	email: white
+);
+
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
 @import 'base-mixins';
 
@@ -25,6 +35,10 @@ $navbar_background_color: black;
 
 // ---- WRITE MORE PROJECT STYLES HERE ---------------------------------------------
 // MOBILE/DEFAULT STYLES ARE HERE.
+
+body{
+	background:$profile-background;
+}
 
 .container--content{
 	padding:0;
