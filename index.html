@@ -10,7 +10,7 @@
         </button>
         {{ p.full_transcript|markdown }}
         <audio class='profile__quote-audio'>
-          <source src="http://{{ ROOT_URL }}/img/people/DACA-audio-Zain-Sayed.mp3" type="audio/mp3">
+          <source src="http://{{ ROOT_URL }}/audio/{{ p.id }}.mp3" type="audio/mp3">
           {# <source src="viper.ogg" type="audio/ogg"> #}
           <p>Your browser doesn't support HTML5 audio. Here is a <a href="DACA-audio-Zain-Sayed.mp3">link to the audio</a> instead.</p>
         </audio>
@@ -35,14 +35,14 @@
        {% for profile in profiles|sort(False, attribute="display_order") if profile.display == 1 %}
 
             {% set p = profile %}
-            {% set is_vertical = p.photos|is_vertical_photo %}    
+            {% set is_vertical = p.id|is_vertical_photo %}    
             {% if is_vertical %}
                 {% set add_class = "profile--vertical" %}    
             {% else %}
                 {% set add_class = "" %}    
             {% endif %}
             <div id="{{ p.id }}" class='profile profile--{{ p.display_type }} {{ add_class }}'>
-                <img class='profile__image' src="http://{{ ROOT_URL }}/img/people/{{ p.photos }}" />
+                <img class='profile__image' src="http://{{ ROOT_URL }}/img/people/{{ p.id }}.jpg" />
                 <div class='profile__text'>
                     <h2 class='profile__name'>{{ p.name }}</h2>
                     <p class='profile__age'>Is a {{ p.age }}-year-old {{ p.current_occupation }}. They came to the United States from {{ p.country }} at {{ p.age_arrived }}.</p>
