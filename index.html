@@ -37,9 +37,11 @@
                 </div>
                 {% if p.full_transcript and p.display_type == "solo" %}
                     <blockquote class='profile__quote'>
-                        <svg class='profile__quote-icon'>
-                            <use xlink:href="#quote" />
-                        </svg>
+                        <button class='profile__quote-icon'>
+                            <svg class='profile__quote-icon'>
+                                <use xlink:href="#audio" />
+                            </svg>
+                        </button>
                         {{ p.full_transcript|markdown }}
                     </blockquote>
                 {% endif %}

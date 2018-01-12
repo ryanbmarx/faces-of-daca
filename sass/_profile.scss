@@ -72,9 +72,19 @@
 		max-width: 60%;
 		
 		&-icon{
-			fill: white;
-			width: 75px;
-			height: 75px;
+			cursor:pointer;
+			background:transparent;
+			border:none;
+			opacity: .8;
+
+			&:hover{
+				opacity: 1;
+			}
+			svg{
+				fill: white;
+				width: 75px;
+				height: 75px;
+			}
 		}
 
 		p{
