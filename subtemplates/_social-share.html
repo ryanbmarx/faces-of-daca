@@ -1,6 +1,6 @@
 {% macro social_icon(network, p) %}
 	<li class='network network--{{ network.slug|lower }}'>
-		<a href="{{ network.url|urlencode }}" aria-label="Share {{ p.name }} on {{ network.network }}">
+		<a target="_blank" href="{{ network.url }}" aria-label="Share {{ p.name }} on {{ network.network }}">
 			<svg class='network__icon' viewbox="0 0 30 30">
 				<use xlink:href="#{{ network.slug|lower }}"/>
 			</svg>
@@ -11,14 +11,16 @@
 
 {% set target_url = "http://" + ROOT_URL + "#" + p.id %}
 
+{% set person_name = p.name_first + " " + p.name_last %}
+
 {% set networks = [
 	{
 		"network":"Facebook",
-		"url":"http://www.facebook.com/sharer.php?u=" + target_url + "&t=Meet " + p.name + ", " + share_sentence,
+		"url":"http://www.facebook.com/sharer.php?u=" + target_url + "&t=Meet " + person_name|urlencode + ", " + share_sentence|urlencode,
 		"slug":"facebook"
 	},{
 		"network":"Twitter",
-		"url":"http://twitter.com/share?url=" + target_url + "&text=Meet " + p.name + ", " + share_sentence,
+		"url":"http://twitter.com/share?url=" + target_url + "&text=Meet " + person_name|urlencode + ", " + share_sentence|urlencode,
 		"slug":"twitter"
 	},{
 		"network":"Google+",
@@ -26,7 +28,7 @@
 		"slug":"google"
 	},{
 		"network":"Email",
-		"url":"mailto:?subject=Meet " + p.name + ", " + share_sentence + "&body=" ~ target_url,
+		"url":"mailto:?subject=Meet " + person_name|urlencode + ", " + share_sentence|urlencode + "&body=" ~ target_url,
 		"slug":"email"
 	}
 ]%}
