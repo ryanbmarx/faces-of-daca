@@ -20,19 +20,19 @@ blueprint = Blueprint('faces-of-daca', __name__)
 # @blueprint.app_template_filter()
 # @jinja2.contextfilter
 @blueprint.app_template_filter('is_vertical_photo')
-def is_vertical_photo(photo):
+def is_vertical_photo(id):
 	"""
 	We need to know if the photo is vertical for style reasons. 
 	Return true if it is.
 	"""
 	try:
-		im = Image.open("img/people/" + photo)
+		im = Image.open("img/people/" + id + ".jpg")
 		width,height = im.size
 		if width > height:
 			return False
 		return True
 	except IOError:
-		print("Can't find ", photo)
+		print("Can't find ", id)
 
 
 # Google spreadsheet key
