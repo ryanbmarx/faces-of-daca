@@ -1,0 +1,41 @@
+
+{% macro quote(p) %}
+
+    <blockquote class='profile__quote'>
+        <button class='profile__quote-icon'>
+            <svg class='profile__quote-icon'>
+                <use xlink:href="#audio" />
+            </svg>
+        </button>
+        {{ p.full_transcript|markdown }}
+        <audio class='profile__quote-audio'>
+          <source src="http://{{ ROOT_URL }}/audio/{{ p.id }}.mp3" type="audio/mp3">
+          {# <source src="viper.ogg" type="audio/ogg"> #}
+          <p>Your browser doesn't support HTML5 audio. Here is a <a href="DACA-audio-Zain-Sayed.mp3">link to the audio</a> instead.</p>
+        </audio>
+    </blockquote>
+
+{% endmacro %}
+
+{% set is_vertical = p.id|is_vertical_photo %}    
+{% if is_vertical %}
+    {% set add_class = "profile--vertical" %}    
+{% else %}
+    {% set add_class = "" %}    
+{% endif %}
+<div id="{{ p.id }}" class='profile profile--{{ p.display_type }} {{ add_class }}'>
+    <img class='profile__image profile__image--blur' src="http://{{ ROOT_URL }}/img/people/thumbs/{{ p.id }}.jpg" />
+    <div class='profile__text'>
+        <h2 class='profile__name'>{{ p.name_first }} {{ p.name_last }}</h2>
+        <p class='profile__age'>Is a {{ p.age }}-year-old {{ p.current_occupation }}. {{ p.name_first|capitalize }} came to the United States from {{ p.country }} at {{ p.age_arrived }}.</p>
+        {% include 'subtemplates/_social-share.html' %}
+        {% if p.full_transcript and p.display_type != "solo" %}
+            <blockquote class='profile__quote'>
+                {{ p.full_transcript|markdown }}
+            </blockquote>
+        {% endif %}
+    </div>
+    {% if p.full_transcript and p.display_type == "solo" %}
+        {{ quote(p) }}
+    {% endif %}
+</div>

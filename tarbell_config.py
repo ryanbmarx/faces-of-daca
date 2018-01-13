@@ -26,7 +26,7 @@ def is_vertical_photo(id):
 	Return true if it is.
 	"""
 	try:
-		im = Image.open("img/people/" + id + ".jpg")
+		im = Image.open("img/people/thumbs/" + id + ".jpg")
 		width,height = im.size
 		if width > height:
 			return False
@@ -39,7 +39,7 @@ def is_vertical_photo(id):
 SPREADSHEET_KEY = "1t8-JGai_adp4dzj8wO4KvvDrFYd8ThRHdwQOsFXZScE"
 
 # Exclude these files from publication
-EXCLUDES = ['*.md', 'subtemplates', 'img/src' ,'requirements.txt', 'node_modules', 'sass', 'js/src', 'package.json', 'package-lock.json', 'Gruntfile.js']
+EXCLUDES = ['*.md', 'subtemplates', 'img/src', 'img/people/src' ,'requirements.txt', 'node_modules', 'sass', 'js/src', 'package.json', 'package-lock.json', 'Gruntfile.js']
 
 # Spreadsheet cache lifetime in seconds. (Default: 4)
 # SPREADSHEET_CACHE_TTL = 4

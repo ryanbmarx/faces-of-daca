@@ -46,6 +46,10 @@ body{
 	color:white;
 	position: relative;
 	
+	&__text{
+		margin-top: $grid-gap;
+	}
+
 	&__video{
 		width: 100%;
 		display: block;
@@ -53,10 +57,19 @@ body{
 		top: 0;
 		left:0;
 		z-index: -1;
+		margin-bottom: $grid-gap;
+		max-height: calc(100vh - 50px);
+		overflow: hidden;
+
 		video{
-			width: 100%;
-			display:block;
+			// width: 100%;
+			// display:block;
+			height: 100%;
+			display: block;
+			margin: 50vh 0 0 50vw;
+			transform: translate(-50%, -50%);
 		}
+
 		&:after{
 			// Tjis is the gradient mask
 			content:"";
@@ -73,7 +86,7 @@ body{
 }
 
 .headline-wrapper{
-	height: 100vh;
+	height: calc(100vh - 50px);
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -81,7 +94,8 @@ body{
 	align-content: center;
 	// position:relative;
 	box-sizing:border-box;
-	padding: 0 #{$grid-gap * 2}
+	padding: 0 #{$grid-gap * 2};
+	max-width: 500px;
 }
 
 .headline{

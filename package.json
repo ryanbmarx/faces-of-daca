@@ -5,12 +5,16 @@
   "main": "js/src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir -p css && grunt && npm run resize",
+    "build": "mkdir -p css && grunt && npm run images",
     "watch": "grunt watch",
     "publish": "grunt && tarbell publish",
     "publish:production": "grunt && tarbell publish production",
     "postinstall": "pip install pillow",
-    "resize": "node js/src/resize-photos.js 1000 100 ./img/people/src ./img/people"
+    "images:thumbs": "mkdir -p img/people/thumbs && node js/src/resize-photos.js 50 50 ./img/people/src ./img/people/thumbs",
+    "images:mobile": "mkdir -p img/people/mobile && node js/src/resize-photos.js 450 50 ./img/people/src ./img/people/mobile",
+    "images:tablet": "mkdir -p img/people/tablet && node js/src/resize-photos.js 800 50 ./img/people/src ./img/people/tablet",
+    "images:desktop": "mkdir -p img/people/desktop && node js/src/resize-photos.js 1200 50 ./img/people/src ./img/people/desktop",
+    "images": "npm run images:thumbs && npm run images:mobile && npm run images:tablet && npm run images:desktop"
   },
   "repository": {
     "type": "git",
@@ -37,5 +41,8 @@
   "browserify": {
     "debug": true
   },
-  "tribune": {}
+  "tribune": {},
+  "dependencies": {
+    "in-view": "^0.6.1"
+  }
 }
