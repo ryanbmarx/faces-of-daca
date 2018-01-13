@@ -61,107 +61,7 @@
 	}
 }
 
-.profile.profile--solo{
-	// The large, scrolly kind
-	min-height: 200vh;
-	padding: $grid-gap 0;
-    flex-basis: 100%;
 
-	.profile__name{
-		@include responsive-font(5vw, 35px, 150px, 50px);
-	}
-	
-	.profile__image{
-		position: sticky;
-		top: var(--nav-inner-height);
-		z-index: 2;
-		margin: 0;
-
-	}
-
-	.profile__text{
-		margin: 0 0 100vh $grid-gap;
-		z-index: 100;
-	    position: relative;
-	    text-shadow: 0 0 3px rgba(black, .9);
-        max-width: 40%;
-        text-align: left;
-	}
-	
-	.social-networks{
-		justify-content: flex-start;
-	}
-
-	.profile__quote{
-		padding: 0 0 100vh 0;
-	    z-index: 1000;
-	    position: relative;
-		max-width: 60%;
-		
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		&-icon{
-			// TODO: Pulse animation
-			cursor:pointer;
-			background:transparent;
-			border:none;
-			opacity: .8;
-			margin-right: 20px;
-
-			&:hover{
-				opacity: 1;
-			}
-			svg{
-				fill: white;
-				width: 75px;
-				height: 75px;
-			}
-
-			&.profile__quote-icon--active{
-				opacity: 1;
-				svg{fill: $trib-yellow1;}
-
-			}
-		}
-
-		p{
-			@include responsive-font(1.5vw, 18px, 30px, 30px);
-			font-style: italic;
-		    font-weight: normal;
-		    line-height: 1.9em;
-		    margin: 0;
-		    padding: $grid-gap / 2;
-			background: rgba(black,.5);
-		}
-	}
-}
-
-
-.profile--vertical.profile{
-	// background: red;
-	
-	.profile__text{
-		position: absolute;
-		top: 50%;
-		left: 0;
-		transform: translate(0, -50%);
-	}
-
-	.profile__image{
-		transform: none;
-		position: static;
-		position: relative;
-	}
-
-	.profile__quote{
-		transform: translate(0, -50%);
-		max-width: none;
-		padding: $grid-gap 0;
-	}
-
-}
 
 @media all and (min-width: $tablet-min-width){
 	.profile--duo{
@@ -169,7 +69,118 @@
 		width: calc((100% - #{$grid-gap}) / 2);
 	}
 
+
+	// ------------------------------------------
+	// STANDARD SCROLLY DESIGN FOR THE SOLO PHOTO
+	// ------------------------------------------
+
+	.profile.profile--solo{
+		// The large, scrolly kind
+		min-height: 200vh;
+		padding: $grid-gap 0;
+	    flex-basis: 100%;
+
+		.profile__name{
+			@include responsive-font(5vw, 35px, 150px, 50px);
+		}
+		
+		.profile__image{
+			position: sticky;
+			top: var(--nav-inner-height);
+			z-index: 2;
+			margin: 0;
+
+		}
+
+		.profile__text{
+			margin: 0 0 100vh $grid-gap;
+			z-index: 100;
+		    position: relative;
+		    text-shadow: 0 0 3px rgba(black, .9);
+	        max-width: 40%;
+	        text-align: left;
+		}
+		
+		.social-networks{
+			justify-content: flex-start;
+		}
+	
+		// Only so photos will have quotes
+		.profile__quote{
+			padding: 0 0 100vh 0;
+		    z-index: 1000;
+		    position: relative;
+			max-width: 60%;
+			
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			&-icon{
+				// TODO: Pulse animation
+				cursor:pointer;
+				background:transparent;
+				border:none;
+				opacity: .8;
+				margin-right: 20px;
+
+				&:hover{
+					opacity: 1;
+				}
+				svg{
+					fill: white;
+					width: 75px;
+					height: 75px;
+				}
+
+				&.profile__quote-icon--active{
+					opacity: 1;
+					svg{fill: $trib-yellow1;}
+
+				}
+			}
+
+			p{
+				@include responsive-font(1.5vw, 18px, 30px, 30px);
+				font-style: italic;
+			    font-weight: normal;
+			    line-height: 1.9em;
+			    margin: 0;
+			    padding: $grid-gap / 2;
+				background: rgba(black,.5);
+			}
+		}
+	}
+
+	// ------------------------
+	// NEW DESIGN FOR VERTICAL PHOTOS
+	// ------------------------
+
+	.profile--vertical.profile{
+		// background: red;
+		
+		.profile__text{
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translate(0, -50%);
+		}
+
+		.profile__image{
+			transform: none;
+			position: static;
+			position: relative;
+		}
+
+		.profile__quote{
+			transform: translate(0, -50%);
+			max-width: none;
+			padding: $grid-gap 0;
+		}
+	}
 }
+
+
 @media all and (min-width: $desktop-min-width){
 
 
