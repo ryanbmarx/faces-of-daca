@@ -9,8 +9,8 @@ $tablet-min-width:650px !default;
 $desktop-min-width:850px !default;
 
 // TYPOGRAPHY
-$sans-serif-fonts: "Arial", "Helvetica", sans-serif;
-$serif-fonts: "Georgia", serif;
+$sans-serif-fonts: "Arial", "Helvetica", sans-serif !default;
+$serif-fonts: "Georgia", serif !default;
 
 // SCAFFOLDING
 $grid-gap: 30px;
