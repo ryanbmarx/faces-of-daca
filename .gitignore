@@ -19,4 +19,7 @@ js/*.map
 
 # ignore generated content
 img/sprite.svg
-img/people/*.jpg
+img/people/thumbs
+img/people/mobile
+img/people/tablet
+img/people/desktop
