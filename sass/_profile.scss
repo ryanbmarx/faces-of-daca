@@ -19,6 +19,8 @@
 	color: white; 
 	position: relative;
 	width:100%;
+	font-family: $serif-fonts;
+	line-height: 1.5em;
 	
 	&__image{
 		width: 100%;
@@ -40,6 +42,7 @@
 	&__name{
 		// @include serif-text(25px, 1.3em, normal)
 		@include responsive-font(1.5vw, 18px, 30px, 30px);
+		font-family: $display-fonts;
 	    line-height: 1em;
 		color: white;
 		font-style: italic;
