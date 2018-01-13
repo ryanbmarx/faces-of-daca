@@ -1,6 +1,6 @@
 
 :root {
-  --nav-inner-height: #{$navbar_inner_height--mobile};
+  --nav-inner-height: #{$navbar_inner_height};
 }
 
 
@@ -142,7 +142,7 @@ body{ padding: 0; }
 
 			svg { 
 				// Keeps the logo vertically centered.
-				margin-top: #{($navbar_inner_height - $navbar_inner_height--mobile) / 2}
+				margin-top: #{($navbar_inner_height - $navbar_inner_height) / 2}
 			}
 		}
 		
