@@ -27,7 +27,7 @@
     <img class='profile__image profile__image--blur' src="http://{{ ROOT_URL }}/img/people/thumbs/{{ p.id }}.jpg" />
     <div class='profile__text'>
         <h2 class='profile__name'>{{ p.name_first }} {{ p.name_last }}</h2>
-        <p class='profile__age'>Is a {{ p.age }}-year-old {{ p.current_occupation }}. {{ p.name_first|capitalize }} came to the United States from {{ p.country }} at {{ p.age_arrived }}.</p>
+        <p class='profile__age'>Is a {{ p.age }}-year-old {{ p.current_occupation }}. {{ p.name_first|capitalize }} came to the United States from {{ p.country }} at age {{ p.age_arrived }}.</p>
         {% include 'subtemplates/_social-share.html' %}
         {% if p.full_transcript and p.display_type != "solo" %}
             <blockquote class='profile__quote'>
