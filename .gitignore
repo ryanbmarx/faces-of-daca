@@ -16,4 +16,7 @@ app.min.js
 vendor.min.js
 js/*.map 
 .DS_Store
+
+# ignore generated content
 img/sprite.svg
+img/people/*.jpg

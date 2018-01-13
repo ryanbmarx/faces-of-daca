@@ -22,3 +22,6 @@ window.addEventListener('DOMContentLoaded', function(e){
 	})
 
 })
+
+// TODO: Make start at beginning
+// TODO: On audio end, revert button

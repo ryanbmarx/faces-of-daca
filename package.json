@@ -5,11 +5,12 @@
   "main": "js/src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir -p css && grunt",
+    "build": "mkdir -p css && grunt && npm run resize",
     "watch": "grunt watch",
     "publish": "grunt && tarbell publish",
     "publish:production": "grunt && tarbell publish production",
-    "postinstall":"pip install pillow"
+    "postinstall": "pip install pillow",
+    "resize": "node js/src/resize-photos.js 1000 100 ./img/people/src ./img/people"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^2.0.0",
     "grunt-svgstore": "^1.0.0",
+    "jimp": "^0.2.28",
     "minifyify": "^7.3.3",
     "trib-styles": "git+ssh://git@tribune.unfuddle.com:tribune/trib-styles.git"
   },
