@@ -10,7 +10,7 @@
     "publish": "grunt && tarbell publish",
     "publish:production": "grunt && tarbell publish production",
     "postinstall": "pip install pillow",
-    "images:thumbs": "mkdir -p img/people/thumbs && node js/src/resize-photos.js 50 50 ./img/people/src ./img/people/thumbs",
+    "images:thumbs": "mkdir -p img/people/thumbs && node js/src/resize-photos.js 25 50 ./img/people/src ./img/people/thumbs",
     "images:mobile": "mkdir -p img/people/mobile && node js/src/resize-photos.js 450 50 ./img/people/src ./img/people/mobile",
     "images:tablet": "mkdir -p img/people/tablet && node js/src/resize-photos.js 800 50 ./img/people/src ./img/people/tablet",
     "images:desktop": "mkdir -p img/people/desktop && node js/src/resize-photos.js 1200 50 ./img/people/src ./img/people/desktop",
