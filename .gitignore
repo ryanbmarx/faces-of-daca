@@ -17,6 +17,9 @@ vendor.min.js
 js/*.map 
 .DS_Store
 
+# Local storage of assets, such as .PSDs
+_vault
+
 # ignore generated content
 img/sprite.svg
 img/people/thumbs
