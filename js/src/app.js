@@ -3,6 +3,12 @@ const inView = require('in-view');
 
 window.addEventListener('DOMContentLoaded', function(e){
 
+	const videoTimer = setTimeout(function(){
+		// After 30 seconds, stop the video
+		console.log('stop');
+		document.querySelector('.intro__video video').pause();
+	}, 30000)
+
 	// lazyloading the images
 
 	let imageSize = "";
@@ -16,7 +22,6 @@ window.addEventListener('DOMContentLoaded', function(e){
 
     // Let's set our lazyload offset to 500px below the viewport. 
     inView.offset(-500);
-
 
     inView('.profile__image--blur')
         .on('enter', el => {
@@ -60,7 +65,4 @@ window.addEventListener('DOMContentLoaded', function(e){
 		})
 	})
 
-})
-
-// TODO: Make start at beginning
-// TODO: On audio end, revert button
+});
