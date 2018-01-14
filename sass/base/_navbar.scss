@@ -1,7 +1,8 @@
 
-:root {
-  --nav-inner-height: #{$navbar_inner_height};
-}
+// :root {
+// 	--nav-inner-height: #{$navbar_inner_height};
+// 	--nav-overall-height: #{($navbar_inner_height * 2) + $navbar_padding_v};
+// }
 
 
 .navbar__menu{
@@ -12,14 +13,6 @@
 	background: $navbar_background_color;
 	box-shadow: 0 -3px 3px rgba(black, .25);
 	z-index: 1000;
-
-	select{
-		width: 100%;
-		padding: $navbar_padding_v * 1.5;
-		border:none;
-		background: $navbar_background_color;
-		color:white;
-	}
 }
 
 body{ padding: 0; }
@@ -40,24 +33,21 @@ body{ padding: 0; }
 		
 		padding-top: $navbar_padding_v; // allows the container to govern the overall bar height
 		padding-bottom: $navbar_padding_v;// allows the container to govern the overall bar height
-		height: var(--nav-inner-height);// allows the container to govern the overall bar height
+		height: $navbar_inner_height;// allows the container to govern the overall bar height
 
-		
-
-
-		// padding:0;
 	}
 	
 	[itemprop="publisher"]{
+		height: $navbar_inner_height;
 		svg{
-			height: var(--nav-inner-height);
+			height: $navbar_inner_height;
 		}
 	}
 	
 	&__toggle{
 		box-sizing: border-box;
-		height: var(--nav-inner-height);
-		width: var(--nav-inner-height);
+		height: $navbar_inner_height;
+		width: $navbar_inner_height;
 		padding: $navbar_padding_v / 2;
 
 	    border: none;
@@ -105,17 +95,14 @@ body{ padding: 0; }
 @media all and (min-width: $phablet-min-width){
 	// ONLY CHANGES FOR THE SMALL RIVER (PHABS, TABS) + DESKTOPS
 	body{
-		padding: #{$navbar_inner_height + ($navbar_padding_v * 2)} 0 0 0; // Allows space for the navbar
+		padding: calc(var(--nav-padding-vertical) * 2 + var(--nav-inner-height)) 0 0 0; // Allows space for the navbar
 	}
 	
-	:root {
-	  // --nav-inner-height: #{$navbar_inner_height};
-	}
 
 	.navbar__menu{
 		// Set it up to be styled with the JS module
 		max-width: 300px;
-		height: var(--nav-inner-height);
+		height: $navbar_inner_height;
 		position: absolute;
 		top: $navbar_padding_v;
 		left: 50%;
@@ -142,15 +129,10 @@ body{ padding: 0; }
 
 			svg { 
 				// Keeps the logo vertically centered.
-				margin-top: #{($navbar_inner_height - $navbar_inner_height) / 2}
+				// margin-top: #{($navbar_inner_height - $navbar_inner_height) / 2}
 			}
 		}
 		
-		// &__toggle{
-		// 	// height: $navbar_inner_height;
-		// 	// width: $navbar_inner_height;
-		// 	// padding: $navbar_padding_v;
-		// }
 
 		&__title{
 			position:absolute;
