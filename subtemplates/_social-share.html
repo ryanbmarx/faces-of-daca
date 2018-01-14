@@ -14,14 +14,16 @@
 
 {% set person_name = p.name_first + " " + p.name_last %}
 
+{% set share_sentence = "Meet " + p.name_first + " " + p.name_last + ", one of dozens of Chicago dreamers interviewed by the Chicago Tribune. " + p.name_first + " came to the U.S. at age " ~ p.age_arrived %}
+
 {% set networks = [
 	{
 		"network":"Facebook",
-		"url":"http://www.facebook.com/sharer.php?u=" + target_url + "&t=Meet " + person_name|urlencode + ", " + share_sentence|urlencode,
+		"url":"http://www.facebook.com/sharer.php?u=" + target_url + "&t=" + share_sentence|urlencode,
 		"slug":"facebook"
 	},{
 		"network":"Twitter",
-		"url":"http://twitter.com/share?url=" + target_url + "&text=Meet " + person_name|urlencode + ", " + share_sentence|urlencode,
+		"url":"http://twitter.com/share?url=" + target_url + "&text=" + share_sentence|urlencode,
 		"slug":"twitter"
 	},{
 		"network":"Google+",
@@ -29,7 +31,7 @@
 		"slug":"google"
 	},{
 		"network":"Email",
-		"url":"mailto:?subject=Meet " + person_name|urlencode + ", " + share_sentence|urlencode + "&body=" ~ target_url,
+		"url":"mailto:?&body=" ~ share_sentence ~ ". " ~ target_url,
 		"slug":"email"
 	}
 ]%}
