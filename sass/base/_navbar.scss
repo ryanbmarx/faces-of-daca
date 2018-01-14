@@ -15,7 +15,7 @@
 	z-index: 1000;
 }
 
-body{ padding: #{$navbar_inner_height + ($navbar_padding_v * 2)} 0 0 0; }
+body{ padding: 0 0 0 0; }
 
 .navbar{
 	
@@ -94,6 +94,9 @@ body{ padding: #{$navbar_inner_height + ($navbar_padding_v * 2)} 0 0 0; }
 
 @media all and (min-width: $phablet-min-width){
 	// ONLY CHANGES FOR THE SMALL RIVER (PHABS, TABS) + DESKTOPS	
+
+
+	body{ padding: #{$navbar_inner_height + ($navbar_padding_v * 2)} 0 0 0; }
 
 	.navbar__menu{
 		// Set it up to be styled with the JS module
