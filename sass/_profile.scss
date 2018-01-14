@@ -24,7 +24,7 @@
 	
 	&__image{
 		width: 100%;
-		position: sticky;
+		// position: sticky;
 		margin: 0 0 #{$grid-gap / 2} 0;
 		&.profile__image--blur{
 			filter: blur(20px);
@@ -91,7 +91,7 @@
 
 
 @media all and (min-width: $tablet-min-width){
-	.profile--duo{
+	.profile--duo, .profile--quartet{
 		// Makes them three-across
 		width: calc((100% - #{$grid-gap}) / 2);
 	}
@@ -113,14 +113,14 @@
 		
 		.profile__image{
 			position: sticky;
-			top: var(--nav-inner-height);
+			top: #{$navbar-overall-height};
 			z-index: 2;
 			margin: 0;
 
 		}
 
 		.profile__text{
-			margin: 0 0 100vh $grid-gap;
+			margin: 0 0 30vh $grid-gap;
 			z-index: 100;
 		    position: relative;
 		    text-shadow: 0 0 3px rgba(black, .9);
@@ -134,7 +134,7 @@
 	
 		// Only so photos will have quotes
 		.profile__quote{
-			padding: 0 0 100vh 0;
+			margin: 0 0 50vh 0;
 		    z-index: 1000;
 		    position: relative;
 			max-width: 60%;
@@ -146,28 +146,11 @@
 			&-icon{
 				// TODO: Pulse animation
 				float:none;
-				margin: 0;
 
 				svg{
 					width: 75px;
 					height: 75px;
 				}
-
-		// 		&.profile__quote-icon--active{
-		// // 			opacity: 1;
-		// // 			svg{fill: $trib-yellow1;}
-
-		// 		}
-			}
-
-			p{
-		// 		@include responsive-font(1.5vw, 18px, 30px, 30px);
-		// 		font-style: italic;
-		// 	    font-weight: normal;
-		// 	    line-height: 1.9em;
-		// 	    margin: 0;
-		// 	    padding: $grid-gap / 2;
-		// 		background: rgba(black,.5);
 			}
 		}
 	}

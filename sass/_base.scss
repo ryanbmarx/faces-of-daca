@@ -29,6 +29,7 @@ $navbar_padding_h: 0 !default;
 $navbar_padding_v: 10px !default;
 $border-radius--small: 5px;
 $border-radius--large: $grid-gap / 2;
+$navbar-overall-height: $navbar_inner_height + $navbar_padding_v + $navbar_padding_v;
 
 // SOCIAL SHARE ICONS
 
