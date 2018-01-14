@@ -9,7 +9,12 @@ import jinja2
 # import xlrd
 # from markupsafe import Markup
 # import json
-# import datetime
+
+# For parsing dates
+import datetime
+import dateutil.parser
+
+import xlrd # for parsing excel dates
 
 # For the image sizing
 from PIL import Image
@@ -33,6 +38,22 @@ def is_vertical_photo(id):
 		return True
 	except IOError:
 		print("Can't find ", id)
+
+@blueprint.app_template_filter('xldate_to_datetime')
+def xldate_to_datetime(xldate):
+
+    if isinstance(xldate, unicode):
+        print('unicode!!')
+        retval = datetime.datetime.strptime(xldate, '%m/%d/%Y')
+    else:
+        print('Not unicode!!')
+        retval = xlrd.xldate.xldate_as_datetime(xldate, 0)
+        # retval = xldate_as_tuple(xldate, 0)
+    return retval
+
+@blueprint.app_template_filter('format_date_with_strftime')
+def format_date_with_strftime(date_to_format, format):
+    return date_to_format.strftime(format)
 
 
 # Google spreadsheet key
