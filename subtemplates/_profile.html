@@ -17,11 +17,11 @@
 
 {% set is_vertical = p.id|is_vertical_photo %}    
 {% if is_vertical %}
-    {% set add_class = "profile--vertical" %}    
+    {% set add_class = "vertical" %}    
 {% else %}
-    {% set add_class = "" %}    
+    {% set add_class = p.display_type %}    
 {% endif %}
-<div id="{{ p.id }}" class='profile profile--{{ p.display_type }} {{ add_class }}'>
+<div id="{{ p.id }}" class='profile profile--{{ add_class }}'>
     <img class='profile__image profile__image--blur' src="http://{{ ROOT_URL }}/img/people/thumbs/{{ p.id }}.jpg" />
     <div class='profile__text'>
         <h2 class='profile__name'>{{ p.name_first }} {{ p.name_last }}</h2>
