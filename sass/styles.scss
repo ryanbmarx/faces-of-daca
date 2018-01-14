@@ -23,6 +23,7 @@ $social_colors: (
 	google: #DC4E41,
 	email: white
 );
+$color-links: white;
 
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
 @import 'base-mixins';
@@ -53,6 +54,8 @@ body{
 	
 	&__text{
 		margin-top: $grid-gap;
+		padding: $grid-gap;
+		box-sizing:border-box;
 	}
 
 	&__video{
