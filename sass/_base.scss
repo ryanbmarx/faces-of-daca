@@ -11,11 +11,12 @@ $desktop-min-width:850px !default;
 // TYPOGRAPHY
 $sans-serif-fonts: "Arial", "Helvetica", sans-serif !default;
 $serif-fonts: "Georgia", serif !default;
+$color-links: $trib-blue4 !default;
 
 // SCAFFOLDING
-$grid-gap: 30px;
-$container-max-width: 1500px;
-$container_padding_h: $grid-gap / 2;
+$grid-gap: 30px !default;
+$container-max-width: 1500px !default;
+$container_padding_h: $grid-gap / 2 !default;
 
 // FOOTER
 $footer-background-color: $trib-blue1 !default;
@@ -76,6 +77,15 @@ body{
 p{
 	font: 15px/1.6em $serif-fonts;
 	margin: 0 0 #{$grid-gap / 2} 0;
+}
+
+a{
+	color: $color-links;
+	text-decoration: none;
+
+	&:hover{
+		text-decoration: underline;
+	}
 }
 
 
