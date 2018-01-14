@@ -97,26 +97,14 @@
 	}
 
 
-	// ------------------------------------------
-	// STANDARD SCROLLY DESIGN FOR THE SOLO PHOTO
-	// ------------------------------------------
+	// -----------------------------------------
+	// SHARED FEATURES BETWEEN SOLO AND VERTICAL
+	// -----------------------------------------
 
-	.profile.profile--solo{
-		// The large, scrolly kind
-		min-height: 200vh;
-		padding: $grid-gap 0;
-	    flex-basis: 100%;
-
+	.profile.profile--solo, .profile.profile--vertical{
+	
 		.profile__name{
 			@include responsive-font(5vw, 35px, 150px, 50px);
-		}
-		
-		.profile__image{
-			position: sticky;
-			top: #{$navbar-overall-height};
-			z-index: 2;
-			margin: 0;
-
 		}
 
 		.profile__text{
@@ -127,10 +115,46 @@
 	        max-width: 40%;
 	        text-align: left;
 		}
-		
+
 		.social-networks{
 			justify-content: flex-start;
 		}
+	}
+
+	// ------------------------------------------
+	// STANDARD SCROLLY DESIGN FOR THE SOLO PHOTO
+	// ------------------------------------------
+
+	.profile.profile--solo{
+		// The large, scrolly kind
+		min-height: 200vh;
+		padding: $grid-gap 0;
+	    flex-basis: 100%;
+
+		// .profile__name{
+		// 	@include responsive-font(5vw, 35px, 150px, 50px);
+		// }
+		
+		.profile__image{
+			position: sticky;
+			top: #{$navbar-overall-height};
+			z-index: 2;
+			margin: 0;
+
+		}
+
+		// .profile__text{
+		// 	margin: 0 0 30vh $grid-gap;
+		// 	z-index: 100;
+		//     position: relative;
+		//     text-shadow: 0 0 3px rgba(black, .9);
+	 //        max-width: 40%;
+	 //        text-align: left;
+		// }
+		
+		// .social-networks{
+		// 	justify-content: flex-start;
+		// }
 	
 		// Only so photos will have quotes
 		.profile__quote{
@@ -155,9 +179,9 @@
 		}
 	}
 
-	// ------------------------
+	// ------------------------------
 	// NEW DESIGN FOR VERTICAL PHOTOS
-	// ------------------------
+	// ------------------------------
 
 	.profile--vertical.profile{
 		// background: red;
