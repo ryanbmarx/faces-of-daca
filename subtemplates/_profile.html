@@ -5,7 +5,7 @@
         <button class='profile__quote-icon'>
             <svg><use xlink:href="#audio" /></svg>
         </button>
-        {{ p.full_transcript|markdown }}
+        {{ p.quote|markdown }}
         <audio class='profile__quote-audio'>
           <source src="http://{{ ROOT_URL }}/audio/{{ p.id }}.mp3" type="audio/mp3">
           {# <source src="viper.ogg" type="audio/ogg"> #}
@@ -27,13 +27,13 @@
         <h2 class='profile__name'>{{ p.name_first }} {{ p.name_last }}</h2>
         <p class='profile__age'>Is a {{ p.age }}-year-old {{ p.current_occupation }}. {{ p.name_first|capitalize }} came to the United States from {{ p.country }} at age {{ p.age_arrived }}.</p>
         {% include 'subtemplates/_social-share.html' %}
-        {% if p.full_transcript and p.display_type != "solo" %}
+        {% if p.quote and p.display_type != "solo" %}
             <blockquote class='profile__quote'>
-                {{ p.full_transcript|markdown }}
+                {{ p.quote|markdown }}
             </blockquote>
         {% endif %}
     </div>
-    {% if p.full_transcript and p.display_type == "solo" %}
+    {% if p.quote and p.display_type == "solo" %}
         {{ quote(p) }}
     {% endif %}
 </div>
