@@ -10,6 +10,15 @@
 
 	max-width: $profile-max-width;
 	margin: 0 auto;
+
+	&__header{
+		@include responsive-font(4vw, 20px, 40px, 50px);
+		font-family: $display-fonts;
+		font-style: italic;
+		color: white;
+		text-align: center; 
+		width: 100%;
+	}
 }
 
 .profile{

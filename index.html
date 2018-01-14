@@ -19,8 +19,8 @@
                     <span class='headline__faces'>faces</span>
                     <span class='headline__of'>of</span><br />
                     <span class='headline__daca'>daca</span>
-                </h1>
- #}                <h2>{{ dek }}</h2>
+                </h1>#}
+                <h2>{{ dek }}</h2>
                 <div class='byline'>
                     <p itemprop="author creator">
                         By <a href="mailto:auribe@chicagotribune.com" target="_blank"><span itemtype="http://schema.org/Person" itemscope>Abel Uribe</span></a>, 
@@ -38,10 +38,21 @@
             <div class='river intro__text'>
             <div class="advert advert--right" data-ad-type="shrinky-cube"></div>
             {{intro|markdown}}
+            
+            <div class="video">
+            <video
+                data-account="3690581440001"
+                data-player="S1vBkbMfe"
+                data-embed="default"
+                data-video-id="ref:95396264"
+                class="video-js"
+                controls></video>
+            </div>
         </div>
     </section>
 
     <section class='container container--content profiles'>
+        <h3 class='profiles__header'>{{ profiles_header }}</h3>
         {% set advert_counter = 0 %}
         {% for profile in profiles|sort(False, attribute="display_order") if profile.display == 1 %}
             {% set p = profile %}
@@ -66,6 +77,7 @@
 {% endblock content %}
 
 {% block scripts %}
+    <script src="//players.brightcove.net/3690581440001/S1vBkbMfe_default/index.min.js"></script>
     <script src="//{{ ROOT_URL }}/js/app.min.js"></script>
 {% endblock scripts %}
 
