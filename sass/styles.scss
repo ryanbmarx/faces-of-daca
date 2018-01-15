@@ -1,5 +1,5 @@
 // TYPOGRAPHY
- @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i');
+ @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i|Merriweather:400,400i,700,700i');
 
 // Enables Tribune colors, but is required for everything.
 @import 'base-variables';
@@ -15,7 +15,7 @@ $navbar_background_color: lighten($profile-background, 10%);
 $profile-max-width:1000px;
 $social_icon_base_color: #333;
 
-$display-fonts: 'Playfair Display', 'Georgia', serif;
+$display-fonts: 'Merriweather', 'Georgia', serif;
 
 $social_colors: (
 	twitter: #76A9EA,
