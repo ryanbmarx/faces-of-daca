@@ -1,6 +1,6 @@
 .advert{
 	margin:10px #{0 - $container_padding_h};
-	&[data-ad-type="leaderboard"]{
+	&[data-ad-type="leaderboard"], &[data-ad-type="banner"]{
 		
 	}
 
@@ -19,8 +19,8 @@
 @media all and (min-width:769px){
 	// This is the breakpoint when the mini banners become cubes.
 	.advert{
-		&[data-ad-type="leaderboard"]{
-			// margin:15px 0;
+		&[data-ad-type="leaderboard"], &[data-ad-type="banner"]{
+			margin:#{$grid-gap} auto;
 		}
 
 		&[data-ad-type="shrinky-cube"]{
@@ -28,7 +28,12 @@
 
 			&.advert--right{
 				float:right;
-				margin: 0 0 25px 25px;
+				margin: 0 0 $grid-gap $grid-gap;
+			}
+
+			&.advert--left{
+				float:left;
+				margin: 0 $grid-gap $grid-gap 0;
 			}
 		}
 	}
