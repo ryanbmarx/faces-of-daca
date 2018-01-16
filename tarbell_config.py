@@ -58,10 +58,10 @@ def get_thumbnail_info(image):
 def xldate_to_datetime(xldate):
 
     if isinstance(xldate, unicode):
-        print('unicode!!')
+        # print('unicode!!')
         retval = datetime.datetime.strptime(xldate, '%m/%d/%Y')
     else:
-        print('Not unicode!!')
+        # print('Not unicode!!')
         retval = xlrd.xldate.xldate_as_datetime(xldate, 0)
         # retval = xldate_as_tuple(xldate, 0)
     return retval
