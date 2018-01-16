@@ -19,6 +19,7 @@
                 <source src="img/intro.webm" type="video/webm">
                 <source src="img/intro.mp4" type="video/mp4">
             </video>
+            <div class='intro__video-texture'></div>
             {{ keep_scrolling() }}
         </div>
         <div class='headline-wrapper'>
@@ -94,3 +95,8 @@
     {{ super() }}
     <script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
 {% endblock library_scripts %}
+
+
+{% block preload %}
+    <link rel="preload" href="img/video-texture.svg" as="image">
+{% endblock preload %}

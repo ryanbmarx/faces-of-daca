@@ -25,6 +25,8 @@ $social_colors: (
 );
 $color-links: white;
 
+
+$headline-max-width: 500px;
 $keep-scrolling-icon-dimension: 30px;
 $keep-scrolling-icon-padding: 10px;
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
@@ -75,6 +77,17 @@ body{
 		display:none;
 	}
 
+	&__video-texture{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: black url(../img/video-texture.svg);
+		background-size: 4px;
+		opacity: .25;
+	}
+
 }
 
 .headline-wrapper{
@@ -87,7 +100,7 @@ body{
 	// position:relative;
 	box-sizing:border-box;
 	padding: 0 #{$grid-gap * 2};
-	max-width: 500px;
+	// max-width: 500px;
 
 	background: black url(../img/mobile-poster.jpg) center center;
 	background-size: cover;
@@ -182,6 +195,10 @@ body{
 
 	.headline-wrapper{ 
 		background: none; 
+		max-width: $headline-max-width;
+
+
+
 	}
 	
 	.intro__video{

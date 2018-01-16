@@ -21,10 +21,17 @@
         {# TODO: Check on preconnect, dns-prefetch #}
         <link rel="dns-prefetch" href="//static.chartbeat.com">
         <link rel="dns-prefetch" href="//www.google-analytics.com">
-        <link rel="preconnect" href="https://www.google-analytics.com">
         <link rel="dns-prefetch" href="http://ssor.tribdss.com">
         <link rel="dns-prefetch" href="http://www.tribdss.com">
     {% endblock prefetch %}
+
+    {% block preconnect %}
+        <link rel="preconnect" href="https://www.google-analytics.com">
+    {% endblock preconnect %}
+
+
+    {% block preload %}
+    {% endblock preload %}
 
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="css/styles.css">
