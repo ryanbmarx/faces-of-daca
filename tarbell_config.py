@@ -39,6 +39,21 @@ def is_vertical_photo(id):
 	except IOError:
 		print("Can't find ", id)
 
+@blueprint.app_template_filter('get_thumbnail_info')
+def get_thumbnail_info(image):
+    """
+        For SEO metadata, get and return image dimensions
+    """
+    try:
+        im = Image.open(image)
+        width,height = im.size
+        return {
+            "width": width,
+            "height": height
+        }
+    except IOError:
+        print("Can't find ", id)
+
 @blueprint.app_template_filter('xldate_to_datetime')
 def xldate_to_datetime(xldate):
 
