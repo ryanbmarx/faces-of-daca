@@ -1,6 +1,13 @@
 {% extends "_base.html" %}
 
 
+{% macro keep_scrolling() %}
+    <svg class='keep-scrolling-icon'>
+        <use xlink:href="#arrow-down" />
+    </svg>
+
+{% endmacro%}
+
 {% block content %}
 {# <div class="advert top-ad" data-ad-type="leaderboard"></div> #}
     <section class='container intro'>
@@ -12,6 +19,7 @@
                 <source src="img/intro.webm" type="video/webm">
                 <source src="img/intro.mp4" type="video/mp4">
             </video>
+            {{ keep_scrolling() }}
         </div>
         <div class='headline-wrapper'>
             
@@ -24,8 +32,8 @@
                 <div class='byline'>
                     <p itemprop="author creator">
                         By <a href="mailto:auribe@chicagotribune.com" target="_blank"><span itemtype="http://schema.org/Person" itemscope>Abel Uribe</span></a>, 
-                            <a href="mailto:" target="_blank">
-                            <span itemtype="http://schema.org/Person" itemscope>REPORTER</span></a>, 
+                            <a href="mailto:nmoreno@chicagotribune.com" target="_blank">
+                            <span itemtype="http://schema.org/Person" itemscope>Nereida Moreno</span></a>, 
                             <a href="mailto:cwyoder@chicagotribune.com" target="_blank">
                             <span itemtype="http://schema.org/Person" itemscope>Chad Yoder</span></a> and  
                             <a href="mailto:rymarx@chicagotribune.com" target="_blank">
@@ -49,6 +57,7 @@
                 controls></video>
             </div>
         </div>
+        {{ keep_scrolling() }}
     </section>
 
     <section class='container container--content profiles'>
