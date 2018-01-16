@@ -176,6 +176,19 @@ body{
 	
 	// Makes it bounce
 	animation: 1s bounce ease-in infinite alternate;
+
+	&--back{
+		opacity: .7;
+		animation: none;
+		transform: rotate(180deg);
+		width: 20px;
+		height: 20px;
+		cursor:pointer;
+
+		position: fixed;
+		bottom: 30px;
+		right: 30px;
+	}
 }
 
 .intro__video .keep-scrolling-icon{

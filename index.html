@@ -1,16 +1,28 @@
 {% extends "_base.html" %}
 
 
-{% macro keep_scrolling() %}
-    <svg class='keep-scrolling-icon'>
+{% macro keep_scrolling(direction="down") %}
+    {% if direction == 'down' %}
+        {% set add_class = "" %}
+    {% else %}
+        {% set add_class = "keep-scrolling-icon--back" %}
+        <a href="#intro" title="Return to the top">
+            <span class='sr-only'>Return to the top</span>
+    {% endif %}
+    <svg class='keep-scrolling-icon {{ add_class }}'>
         <use xlink:href="#arrow-down" />
     </svg>
+
+    {% if direction != 'down' %}
+        </a>
+    {% endif %}
+
 
 {% endmacro%}
 
 {% block content %}
 {# <div class="advert top-ad" data-ad-type="leaderboard"></div> #}
-    <section class='container intro'>
+    <section id='intro' class='container intro'>
         <div class='intro__video'>
             <video
                 autoplay muted loop playsinline
@@ -35,10 +47,13 @@
                         By <a href="mailto:auribe@chicagotribune.com" target="_blank"><span itemtype="http://schema.org/Person" itemscope>Abel Uribe</span></a>, 
                             <a href="mailto:nmoreno@chicagotribune.com" target="_blank">
                             <span itemtype="http://schema.org/Person" itemscope>Nereida Moreno</span></a>, 
+                            <a href="mailto:rzalivar@chicagotribune.com" target="_blank">
+                            <span itemtype="http://schema.org/Person" itemscope>Raquel Zalivar</span></a>,
                             <a href="mailto:cwyoder@chicagotribune.com" target="_blank">
                             <span itemtype="http://schema.org/Person" itemscope>Chad Yoder</span></a> and  
                             <a href="mailto:rymarx@chicagotribune.com" target="_blank">
                             <span itemtype="http://schema.org/Person" itemscope>Ryan Marx</span></a>
+
                     </p>
                     <meta itemprop="datePublished" datetime="{{ date_pub|xldate_to_datetime }}" content="{{ date_pub|xldate_to_datetime }}">
                     <time itemprop="dateModified" datetime="{{ date_mod }}"content="{{ date_mod|xldate_to_datetime }}">PUBLISHED: {{ date_mod|xldate_to_datetime|format_date_with_strftime("%B %-d, %Y") }}</time>
@@ -62,6 +77,7 @@
     </section>
 
     <section class='container container--content profiles'>
+        {{ keep_scrolling('back') }}
         <h3 class='profiles__header'>{{ profiles_header }}</h3>
         {% set advert_counter = 0 %}
         {% for profile in profiles|sort(False, attribute="display_order") if profile.display == 1 %}
@@ -71,7 +87,8 @@
             {# Spit out a banner ad about every 10 profiles or so. #}
             {% if advert_counter > 10 and p.display_type == "solo" %}
                 <div class="advert" data-ad-type="banner"></div>
-                {% set advert_counter = 0%}
+                <div style='background:yellow' class="advert" data-ad-type="leaderboard"></div>
+                {% set advert_counter = 0 %}
             {% else %}
                 {% set advert_counter = advert_counter + 1%}
             {% endif %}
