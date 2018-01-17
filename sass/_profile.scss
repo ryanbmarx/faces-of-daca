@@ -62,6 +62,12 @@
 		justify-content: center;
 	}
 
+	&__quote {
+		p {
+			font-style: italic;
+		}
+	}
+
 	&__quote-icon{
 		// TODO: Pulse animation
 		cursor:pointer;

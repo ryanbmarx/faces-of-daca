@@ -19,10 +19,10 @@
     
     {% block prefetch %}
         {# TODO: Check on preconnect, dns-prefetch #}
-        <link rel="dns-prefetch" href="//static.chartbeat.com">
-        {# <link rel="dns-prefetch" href="//www.google-analytics.com"> #}
+   {#      <link rel="dns-prefetch" href="//static.chartbeat.com">
+        <link rel="dns-prefetch" href="//www.google-analytics.com">
         <link rel="dns-prefetch" href="http://ssor.tribdss.com">
-        <link rel="dns-prefetch" href="http://www.tribdss.com">
+        <link rel="dns-prefetch" href="http://www.tribdss.com"> #}
     {% endblock prefetch %}
 
     {% block preconnect %}
@@ -75,11 +75,11 @@
 
     {% block library_scripts %}
     {# FORGET WHAT THIS IS FOR #}
-    <script src="http://ssor.tribdss.com/reg/tribune/chinews-apps.min.js"></script>
+    <script src="//ssor.tribdss.com/reg/tribune/chinews-apps.min.js"></script>
     
     {# METER #}
     <script type="text/javascript" src="//www.tribdss.com/meter/ctcngux.min.js" defer async></script>
-
+    
     {# For the adverts #}
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//media.apps.chicagotribune.com/ads/v2.1.4/ads.min.js" defer async></script>
@@ -88,6 +88,29 @@
         window.ROOT_URL = "http://{{ ROOT_URL }}";
     </script>
     {% endblock %}
+
+    {% block omniture_config %}
+        {# OMNITURE #}
+        <script type="text/javascript">
+            ((((window.trb || (window.trb = {})).data || (trb.data = {})).metrics || (trb.data.metrics = {})).thirdparty = {
+                    pageName: 'ct:apps:news:{{ name }}:articleproject.',
+                    channel: 'news',
+                    server: 'graphics.chicagotribune.com',
+                    hier1: 'chicagotribune:news',
+                    hier2: 'news',
+                    prop1: 'D=pageName',
+                    prop2: 'news',
+                    prop38: 'articleproject',
+                    prop57: 'D=c38',
+                    prop59: '',
+                    eVar20: 'chicagotribune',
+                    eVar21: 'D=c38',
+                    eVar34: 'D=ch',
+                    eVar35: 'D=pageName',
+                    events:''
+            });  
+        </script>
+    {% endblock omniture_config %}
 </head>
 
 <body data-ad-path="{{ ad_path }}" data-ad-ptype="s" data-ad-iframe-url="./ad-iframe.html" itemscope itemtype="http://schema.org/NewsArticle">
@@ -97,6 +120,11 @@
     {% block nav scoped%}{% include "subtemplates/_navbar.html" %}{% endblock %}
 
     {% block content %}{% endblock content %}
+    {% block comments %}
+        {% include 'subtemplates/_solid-opinion-comments.html' %}
+        
+    {% endblock comments %}
+
 
     {% block footer %}
     <footer class='page-footer'>
@@ -106,87 +134,51 @@
    
     <meta itemprop="image" content="http://{{ ROOT_URL }}/img/thumb.jpg" />
     
-    {% block scripts %}{% endblock scripts %}
+    {% block scripts %}
+    <script>
+            document.getElementById('comments-button').addEventListener('click', function(e){
+            document.querySelector(`.trb_cm_so[data-role="cm_container"]`).style.maxHeight = "10000000vh";
+            (window.registration || (registration = [])).push('solidopinion');
+            }, false);
+        </script>
+    {% endblock scripts %}
+
+    {% block chartbeat %}
+        {# CHARTBEAT #}
+        {# Inserts own <script> tag at end of <body> #}
+        <script type='text/javascript'>
+            var _sf_async_config = _sf_async_config || {};
+            var pageTitle = "{{ title }}";
+
+            _sf_async_config.uid = 25745 
+            _sf_async_config.domain = 'chicagotribune.com'; 
+            _sf_async_config.useCanonical = true;
+            _sf_async_config.sections = 'Data, Dataviz'; 
+            _sf_async_config.authors = 'Tribune Dataviz, Tribune Photo Desk';
+            _sf_async_config.title = pageTitle;
+            
+            (function() {
+                function loadChartbeat() {
+                    var e = document.createElement('script');
+                    e.setAttribute('language', 'javascript');
+                    e.setAttribute('type', 'text/javascript');
+                    e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+                    document.body.appendChild(e);
+                }
+                var oldonload = window.onload;
+                window.onload = (typeof window.onload != 'function') ?
+                    loadChartbeat : function() {
+                        oldonload();
+                        loadChartbeat();
+                    };
+            })();
+        </script>  
+    {% endblock chartbeat %}
     
-    {% block omniture_config %}
-    {# OMNITURE #}
-      <script type="text/javascript">
-        ((((window.trb || (window.trb = {})).data || (trb.data = {})).metrics || (trb.data.metrics = {})).thirdparty = {
-                pageName: 'ct:apps:news:{{ name }}:articleproject.',
-                channel: 'news',
-                server: 'graphics.chicagotribune.com',
-                hier1: 'chicagotribune:news',
-                hier2: 'news',
-                prop1: 'D=pageName',
-                prop2: 'news',
-                prop38: 'articleproject',
-                prop57: 'D=c38',
-                prop59: '',
-                eVar20: 'chicagotribune',
-                eVar21: 'D=c38',
-                eVar34: 'D=ch',
-                eVar35: 'D=pageName',
-                events:''
-        });  
-    </script>
-    {% endblock omniture_config %}
 
-    {% block chartbeat_config %}
-    {# CHARTBEAT #}
-      
-      <script type='text/javascript'>
-        var _sf_async_config = _sf_async_config || {};
-        
+    {% block omniture_scripts %}
+        <script src="//www.chicagotribune.com/thirdpartyservice?disablenav=true" async></script>
+    {% endblock omniture_scripts %}
 
-        var pageTitle = "<community area> (crime site)";
-
-        _sf_async_config.uid = 25745 
-        _sf_async_config.domain = 'chicagotribune.com'; 
-        _sf_async_config.useCanonical = true;
-        _sf_async_config.sections = 'Data, Dataviz'; 
-        _sf_async_config.authors = 'Tribune Dataviz';
-        _sf_async_config.title = pageTitle;
-        
-        (function() {
-            function loadChartbeat() {
-                var e = document.createElement('script');
-                e.setAttribute('language', 'javascript');
-                e.setAttribute('type', 'text/javascript');
-                e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
-                document.body.appendChild(e);
-            }
-            var oldonload = window.onload;
-            window.onload = (typeof window.onload != 'function') ?
-                loadChartbeat : function() {
-                    oldonload();
-                    loadChartbeat();
-                };
-        })();
-      </script>
-      
-      {% endblock chartbeat_config %}
   </body>
-  </html>
-
-{# 
-
-OMNITURE
-CHARTBEAT
-GOOGLE ANALYTICS
-ADS
-METER
-
-OMNITURE CUSTOM LINK TRACKS
-
-PUBLISH TIME
-UPDATE TIME
-
-DATA VALID TIME
-
-PUB A STORYLINK OR CUSTOM BLURB FOR EACH ITEM
-
-ADD IMAGE TO THE DESIGN?
-
-Add schema place info?
-rel='dns-prefetch'??
-#}
+</html>
