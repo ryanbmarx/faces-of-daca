@@ -96,6 +96,29 @@ a{
 	}
 }
 
+// This is the paywall/meter/registration sticky note at the bottom of the page
+.met-flyout .met-promo-content{
+	p {
+		line-height: 1.3em;
+		font-family: "Arial", sans-serif;
+		span{
+			font: 14px/1.3em "Arial", sans-serif;
+			color:white;
+			width:100%;
+			margin: 0;
+
+			&:first-of-type{
+				font-weight: 700;
+			}
+
+			a {
+				font: 14px/1.3em "Arial", sans-serif !important;
+				
+			}
+		}
+	}
+}
+
 @media all and (min-width: $phablet-min-width){
 	p{
 		font-size: 18px;
