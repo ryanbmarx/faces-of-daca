@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class='river intro__text'>
-            <div class="advert advert--right" data-ad-type="shrinky-cube"></div>
+            <div class="advert advert--right" style='background:yellow'data-ad-type="shrinky-cube"></div>
             {{intro|markdown}}
             
             <div class="video">
@@ -85,7 +85,6 @@
 
             {# Spit out a banner ad about every 10 profiles or so. #}
             {% if advert_counter > 10 and p.display_type == "solo" %}
-                <div class="advert" data-ad-type="banner"></div>
                 <div style='background:yellow' class="advert" data-ad-type="leaderboard"></div>
                 {% set advert_counter = 0 %}
             {% else %}
