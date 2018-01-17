@@ -1,9 +1,28 @@
 {% extends "_base.html" %}
 
 
+{% macro keep_scrolling(direction="down") %}
+    {% if direction == 'down' %}
+        {% set add_class = "" %}
+    {% else %}
+        {% set add_class = "keep-scrolling-icon--back" %}
+        <a href="#intro" title="Return to the top">
+            <span class='sr-only'>Return to the top</span>
+    {% endif %}
+    <svg class='keep-scrolling-icon {{ add_class }}'>
+        <use xlink:href="#arrow-down" />
+    </svg>
+
+    {% if direction != 'down' %}
+        </a>
+    {% endif %}
+
+
+{% endmacro%}
+
 {% block content %}
 {# <div class="advert top-ad" data-ad-type="leaderboard"></div> #}
-    <section class='container intro'>
+    <section id='intro' class='container intro'>
         <div class='intro__video'>
             <video
                 autoplay muted loop playsinline
@@ -12,6 +31,8 @@
                 <source src="img/intro.webm" type="video/webm">
                 <source src="img/intro.mp4" type="video/mp4">
             </video>
+            <div class='intro__video-texture'></div>
+            {{ keep_scrolling() }}
         </div>
         <div class='headline-wrapper'>
             
@@ -24,19 +45,21 @@
                 <div class='byline'>
                     <p itemprop="author creator">
                         By <a href="mailto:auribe@chicagotribune.com" target="_blank"><span itemtype="http://schema.org/Person" itemscope>Abel Uribe</span></a>, 
-                            <a href="mailto:" target="_blank">
-                            <span itemtype="http://schema.org/Person" itemscope>REPORTER</span></a>, 
-                            <a href="mailto:cyoder@chicagotribune.com" target="_blank">
-                            <span itemtype="http://schema.org/Person" itemscope>Chad Yoder</span></a> and  
-                            <a href="mailto:rymarx@chicagotribune.com" target="_blank">
-                            <span itemtype="http://schema.org/Person" itemscope>Ryan Marx</span></a>
+                        <a href="mailto:" target="_blank">
+                        <span itemtype="http://schema.org/Person" itemscope>Nereida Moreno</span></a>, 
+                        <a href="mailto:rzalivar@chicagotribune.com" target="_blank">
+                        <span itemtype="http://schema.org/Person" itemscope>Raquel Zalivar</span></a>,
+                        <a href="mailto:cyoder@chicagotribune.com" target="_blank">
+                        <span itemtype="http://schema.org/Person" itemscope>Chad Yoder</span></a> and  
+                        <a href="mailto:rymarx@chicagotribune.com" target="_blank">
+                        <span itemtype="http://schema.org/Person" itemscope>Ryan Marx</span></a>
                     </p>
                     <meta itemprop="datePublished" datetime="{{ date_pub|xldate_to_datetime }}" content="{{ date_pub|xldate_to_datetime }}">
                     <time itemprop="dateModified" datetime="{{ date_mod }}"content="{{ date_mod|xldate_to_datetime }}">PUBLISHED: {{ date_mod|xldate_to_datetime|format_date_with_strftime("%B %-d, %Y") }}</time>
                 </div>
             </div>
             <div class='river intro__text'>
-            <div class="advert advert--right" data-ad-type="shrinky-cube"></div>
+            <div class="advert advert--right" style='background:yellow'data-ad-type="shrinky-cube"></div>
             {{intro|markdown}}
             
             <div class="video">
@@ -44,14 +67,16 @@
                 data-account="3690581440001"
                 data-player="S1vBkbMfe"
                 data-embed="default"
-                data-video-id="ref:95396264"
+                data-video-id="ref:95675321"
                 class="video-js"
                 controls></video>
             </div>
         </div>
+        {{ keep_scrolling() }}
     </section>
     {% include '_stats.html' %}
     <section class='container container--content profiles'>
+        {{ keep_scrolling('back') }}
         <h3 class='profiles__header'>{{ profiles_header }}</h3>
         {% set advert_counter = 0 %}
         {% for profile in profiles|sort(False, attribute="display_order") if profile.display == 1 %}
@@ -60,8 +85,8 @@
 
             {# Spit out a banner ad about every 10 profiles or so. #}
             {% if advert_counter > 10 and p.display_type == "solo" %}
-                <div class="advert" data-ad-type="banner"></div>
-                {% set advert_counter = 0%}
+                <div style='background:yellow' class="advert" data-ad-type="leaderboard"></div>
+                {% set advert_counter = 0 %}
             {% else %}
                 {% set advert_counter = advert_counter + 1%}
             {% endif %}
@@ -77,6 +102,7 @@
 {% endblock content %}
 
 {% block scripts %}
+    {{ super() }}
     <script src="//players.brightcove.net/3690581440001/S1vBkbMfe_default/index.min.js"></script>
     <script src="//{{ ROOT_URL }}/js/app.min.js"></script>
 {% endblock scripts %}
@@ -85,3 +111,8 @@
     {{ super() }}
     <script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
 {% endblock library_scripts %}
+
+
+{% block preload %}
+    <link rel="preload" href="img/video-texture.svg" as="image">
+{% endblock preload %}

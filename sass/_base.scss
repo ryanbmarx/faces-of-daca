@@ -32,7 +32,6 @@ $border-radius--large: $grid-gap / 2;
 $navbar-overall-height: $navbar_inner_height + $navbar_padding_v + $navbar_padding_v;
 
 // SOCIAL SHARE ICONS
-
 $social_icon_base_color: $trib-gray3 !default;
 $social_colors: (
 	twitter: #76A9EA,
@@ -40,6 +39,11 @@ $social_colors: (
 	google: #DC4E41,
 	email: black
 ) !default;
+
+
+// COMMENTS
+$comments-button-color: $trib-blue2 !default;
+$comments-button-text-color: black !default;
 
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
 @import 'base-mixins';
@@ -50,6 +54,7 @@ $social_colors: (
 @import 'base/social';
 @import 'base/byline';
 @import 'base/adverts';
+@import 'base/comments';
 
 body{
 	margin: 0;

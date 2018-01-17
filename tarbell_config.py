@@ -39,14 +39,29 @@ def is_vertical_photo(id):
 	except IOError:
 		print("Can't find ", id)
 
+@blueprint.app_template_filter('get_thumbnail_info')
+def get_thumbnail_info(image):
+    """
+        For SEO metadata, get and return image dimensions
+    """
+    try:
+        im = Image.open(image)
+        width,height = im.size
+        return {
+            "width": width,
+            "height": height
+        }
+    except IOError:
+        print("Can't find ", id)
+
 @blueprint.app_template_filter('xldate_to_datetime')
 def xldate_to_datetime(xldate):
 
     if isinstance(xldate, unicode):
-        print('unicode!!')
+        # print('unicode!!')
         retval = datetime.datetime.strptime(xldate, '%m/%d/%Y')
     else:
-        print('Not unicode!!')
+        # print('Not unicode!!')
         retval = xlrd.xldate.xldate_as_datetime(xldate, 0)
         # retval = xldate_as_tuple(xldate, 0)
     return retval
