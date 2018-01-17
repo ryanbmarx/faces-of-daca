@@ -1,0 +1,44 @@
+$stats_text: $trib_gray4;
+
+.stats {
+	background-color: $trib_gray1;
+	padding: 20px;
+	width: 80%;
+	margin: auto;
+	border-radius: 20px;
+	//border: 2px solid white;
+
+	&__blurbs p {
+		color: $stats_text;
+	}
+
+	&__hed {
+		color: $stats_text;
+		font-family: $display-fonts;
+		font-size: 30px;
+		font-style: italic;
+		margin: 0 0 20px 0;
+		text-align: center;
+	}
+
+	&__source {
+		font-style: italic;
+		color: $stats_text;
+	}
+}
+
+.graphic-wrapper {
+	display: block;
+	margin: 10px 0 10px 0;
+}
+
+@media all and (min-width: $phablet-min-width) {
+	.graphic-wrapper {
+		display: flex;
+		align-items: center;
+	}
+
+	.graphic {
+		margin-right: 20px;
+	}
+}
