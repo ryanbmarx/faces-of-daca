@@ -34,6 +34,12 @@ $keep-scrolling-icon-padding: 10px;
 $comments-button-color: #888;
 $comments-button-text-color: #aaa;
 
+// CALLS TO ACTION
+
+$cta-background-color: #222;
+$cta-button-base-color: #888;
+
+
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
 @import 'base-mixins';
 
