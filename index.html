@@ -1,5 +1,12 @@
 {% extends "_base.html" %}
 
+    {% macro cta(header, text=False, link, link_text, align_right=False) %}
+        <aside class='cta {% if align_right %}cta--right{% endif %}'>
+            {% if header %}<p class='cta__header'>{{ header }}</p>{% endif %}
+            {% if text %}<p class='cta__text'>{{ text }}</p>{% endif %}
+            <a class='cta__button' href="{{ link }}" target="_blank">{{ link_text }}</a>
+        </aside>
+    {% endmacro %}
 
 {% macro keep_scrolling(direction="down") %}
     {% if direction == 'down' %}
@@ -75,6 +82,8 @@
         {{ keep_scrolling() }}
     </section>
 
+    {{ cta("Please subscribe. It would help (text tk).", False, "#", "Subscribe!") }}
+        
     <section class='container container--content profiles'>
         {{ keep_scrolling('back') }}
         <h3 class='profiles__header'>{{ profiles_header }}</h3>
@@ -99,6 +108,7 @@
             {% if credits %}{{ credits|markdown }}{% endif %}
         </div>
     </section>
+    {{ cta("Please subscribe. It would help (text tk).", False, "#", "Subscribe!") }}
 {% endblock content %}
 
 {% block scripts %}
