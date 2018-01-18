@@ -2,10 +2,20 @@
 {% macro quote(p) %}
 
     <blockquote class='profile__quote'>
-        <button class='profile__quote-icon'>
-            <svg><use xlink:href="#audio" /></svg>
-        </button>
-        {{ p.quote|markdown }}
+
+
+            {% if p.audio == 1 %}
+            <button class='profile__quote-icon'>
+                <svg><use xlink:href="#audio" /></svg>
+            </button>
+            {% else %}
+            <span class='profile__quote-icon'>
+                <svg class='profile__quote-icon'>
+                    <use xlink:href="#quote" />
+                </svg>
+            </span>
+            {% endif %}
+                    {{ p.quote|markdown }}
         <audio class='profile__quote-audio'>
           <source src="http://{{ ROOT_URL }}/audio/{{ p.id }}.mp3" type="audio/mp3">
           {# <source src="viper.ogg" type="audio/ogg"> #}

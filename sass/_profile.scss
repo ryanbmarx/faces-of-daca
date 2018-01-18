@@ -78,21 +78,23 @@
 		float:left;
 		margin: 0 #{$grid-gap / 2} 0 0;
 
-		&:hover{
-			opacity: 1;
-		}
+
 		svg{
 			fill: white;
 			width: 50px;
 			height: 50px;
 		}
 
-		&.profile__quote-icon--active{
-			opacity: 1;
-			svg{fill: $trib-yellow1;}
-
-		}
-
+		
+		button.profile__quote-icon{
+			// Only quote icons that are buttons
+			&:hover{ opacity: 1; }
+	
+			&.profile__quote-icon--active{
+				opacity: 1;
+				svg{fill: $trib-yellow1;}
+			}
+		}	
 		p{
 			// @include responsive-font(1.5vw, 18px, 30px, 30px);
 			font-style: italic;
