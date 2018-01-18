@@ -32,7 +32,7 @@ $stats_text: $trib_gray4;
 	margin: 10px 0 10px 0;
 }
 
-@media all and (min-width: $phablet-min-width) {
+@media all and (min-width: $tablet-min-width) {
 	.graphic-wrapper {
 		display: flex;
 		align-items: center;

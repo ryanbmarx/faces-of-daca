@@ -84,15 +84,20 @@
     </section>
 
     {{ cta("Please subscribe. It would help (text tk).", False, "#", "Subscribe!") }}
-    {% include '_stats.html' %}
 
     <section class='container container--content profiles'>
         {{ keep_scrolling('back') }}
         <h3 class='profiles__header'>{{ profiles_header }}</h3>
         {% set advert_counter = 0 %}
         {% for profile in profiles|sort(False, attribute="display_order") if profile.display == 1 %}
-            {% set p = profile %}
-            {% include 'subtemplates/_profile.html' %}
+            {% if profile.display_order == 230 %}
+                {% set p = profile %}
+                {% include 'subtemplates/_profile.html' %}
+                {% include '_stats.html' %}
+            {% else %}
+                {% set p = profile %}
+                {% include 'subtemplates/_profile.html' %}
+            {% endif %}
 
             {# Spit out a banner ad about every 10 profiles or so. #}
             {% if advert_counter > 10 and p.display_type == "solo" %}
