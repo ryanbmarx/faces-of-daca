@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', function(e){
 		// After 30 seconds, stop the video
 		console.log('stop');
 		document.querySelector('.intro__video video').pause();
-	}, 30000)
+	}, 45000)
 
 	// lazyloading the images
 
