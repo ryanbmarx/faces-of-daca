@@ -12,12 +12,14 @@
                 </svg>
             </span>
             {% endif %}
-                    {{ p.quote|markdown }}
-        <audio class='profile__quote-audio'>
-          <source src="http://{{ ROOT_URL }}/audio/{{ p.id }}.mp3" type="audio/mp3">
-          {# <source src="viper.ogg" type="audio/ogg"> #}
-          <p>Your browser doesn't support HTML5 audio. Here is a <a href="DACA-audio-Zain-Sayed.mp3">link to the audio</a> instead.</p>
-        </audio>
+            {{ p.quote|markdown }}
+            {% if p.audio == 1 %}
+            <audio class='profile__quote-audio'>
+                <source src="http://{{ ROOT_URL }}/audio/{{ p.id }}.mp3" type="audio/mp3">
+                {# <source src="viper.ogg" type="audio/ogg"> #}
+                <p>Your browser doesn't support HTML5 audio. Here is a <a href="DACA-audio-Zain-Sayed.mp3">link to the audio</a> instead.</p>
+            </audio>
+            {% endif %}
     </blockquote>
 {% endmacro %}
 
