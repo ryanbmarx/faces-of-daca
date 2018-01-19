@@ -120,10 +120,12 @@ body{
 }
 
 .headline{
+	@include responsive-font(6vw, 35px, 80px, 50px);
 	color:white;
 	font-weight: normal;
 	font-style: italic;
 	font-family: $display-fonts;
+	margin: 0 0 $grid-gap 0;
 
 	&__faces{
 		width: 100%;
