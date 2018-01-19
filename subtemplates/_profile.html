@@ -1,9 +1,6 @@
 
 {% macro quote(p) %}
-
     <blockquote class='profile__quote'>
-
-
             {% if p.audio == 1 %}
             <button class='profile__quote-icon'>
                 <svg><use xlink:href="#audio" /></svg>
@@ -22,7 +19,6 @@
           <p>Your browser doesn't support HTML5 audio. Here is a <a href="DACA-audio-Zain-Sayed.mp3">link to the audio</a> instead.</p>
         </audio>
     </blockquote>
-
 {% endmacro %}
 
 {% set is_vertical = p.id|is_vertical_photo %}    
@@ -38,9 +34,10 @@
         <p class='profile__age'>... is a {{ p.age }}-year-old {{ p.current_occupation }}. {{ p.name_first|capitalize }} came to the United States from {{ p.country }} at age {{ p.age_arrived }}.</p>
         {% include 'subtemplates/_social-share.html' %}
         {% if p.quote and p.display_type != "solo" %}
-            <blockquote class='profile__quote'>
+        
+        {{ quote(p) }}{#     <blockquote class='profile__quote'>
                 {{ p.quote|markdown }}
-            </blockquote>
+            </blockquote> #}
         {% endif %}
     </div>
     {% if p.quote and p.display_type == "solo" %}

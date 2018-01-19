@@ -47,7 +47,7 @@
 	    // position: relative;
 	    // text-shadow: 0 0 3px rgba(black, .9);
 	}
-
+	
 	&__name{
 		// @include serif-text(25px, 1.3em, normal)
 		@include responsive-font(3vw, 18px, 30px, 30px);
@@ -55,13 +55,20 @@
 	    line-height: 1em;
 		color: white;
 		font-style: italic;
-		margin: 0 0 #{$grid-gap / 2} 0
+		margin: 0 0 #{$grid-gap / 2} 0;
 	}
+
+	&__age{
+		@include sans-serif-text(16px,1.4em);
+	}
+
 	.social-networks{
 		justify-content: center;
 	}
 
 	&__quote {
+		margin: $grid-gap 0 0 0;
+
 		p {
 			font-style: italic;
 		}
@@ -73,9 +80,8 @@
 		background:transparent;
 		border:none;
 		opacity: .8;
-		margin-right: $grid-gap / 2;
-		float:left;
-		margin: 0 #{$grid-gap / 2} 0 0;
+		// float:left;
+		margin: 0 auto;
 
 
 		svg{
@@ -113,49 +119,49 @@
 
 		// and, add some pizaz to the quotes not on the solos
 
-		.profile__quote{
-			width: 50vw;
-			width: 100%;
-			padding: 0;
-			margin: 0;
-			margin: 90px 0 0 -13.5vw;
-			margin: 90px 0 0 0;
-			position:relative;
+	// 	.profile__quote{
+	// 		width: 50vw;
+	// 		width: 100%;
+	// 		padding: 0;
+	// 		margin: 0;
+	// 		margin: 90px 0 0 -13.5vw;
+	// 		margin: 90px 0 0 0;
+	// 		position:relative;
 
-			&:before{
-				content: "";
-				height: 80px;
-				width: 2px;
-				background: white;
-				position: absolute;
-				bottom: 100%;
-				left: 50%;
-				transform: translate(-50%, -10px);
-			}	
+	// 		&:before{
+	// 			content: "";
+	// 			height: 80px;
+	// 			width: 2px;
+	// 			background: white;
+	// 			position: absolute;
+	// 			bottom: 100%;
+	// 			left: 50%;
+	// 			transform: translate(-50%, -10px);
+	// 		}	
 
-			&:after{
-				content: "\201C";
+	// 		&:after{
+	// 			content: "\201C";
 				
-				display: flex;
-				align-items:center;
-				justify-content:center;
+	// 			display: flex;
+	// 			align-items:center;
+	// 			justify-content:center;
 
-				line-height: 1em;
-				font-size: 20px;
-				font-family: $display-fonts;
+	// 			line-height: 1em;
+	// 			font-size: 20px;
+	// 			font-family: $display-fonts;
 
-				height: 30px;
-				width: 30px;
-				background: white;				
-				color: $profile-background;
+	// 			height: 30px;
+	// 			width: 30px;
+	// 			background: white;				
+	// 			color: $profile-background;
 
-				position: absolute;
-				bottom: 100%;
-				left: 50%;
-				transform: translate(-50%, -35px);
-				border-radius: 50%;
-			}
-		}
+	// 			position: absolute;
+	// 			bottom: 100%;
+	// 			left: 50%;
+	// 			transform: translate(-50%, -35px);
+	// 			border-radius: 50%;
+	// 		}
+	// 	}
 
 	}
 
@@ -202,7 +208,6 @@
 
 		}
 	
-		// Only so photos will have quotes
 		.profile__quote{
 			margin: 0 0 50vh 0;
 		    z-index: 1000;
@@ -215,7 +220,8 @@
 
 			&-icon{
 				// TODO: Pulse animation
-				float:none;
+				margin-right: $grid-gap / 2;
+
 
 				svg{
 					width: 75px;
@@ -263,47 +269,47 @@
 	    width: calc((100% - #{$grid-gap * 2}) / 3);
 
 		.profile__quote{
-			width: 50vw;
-			padding: 0;
-			margin: 0;
-			margin: 90px 0 0 0;
-			position:relative;
-			transform: translate(-50%,0);
-			left: 50%;
+			// width: 50vw;
+			// padding: 0;
+			// margin: 0;
+			// margin: 90px 0 0 0;
+			// position:relative;
+			// transform: translate(-50%,0);
+			// left: 50%;
 			
-			&:before{
-				content: "";
-				height: 80px;
-				width: 2px;
-				background: white;
-				position: absolute;
-				bottom: 100%;
-				left: 50%;
-				transform: translate(-50%, -10px);
-			}	
+			// &:before{
+			// 	content: "";
+			// 	height: 80px;
+			// 	width: 2px;
+			// 	background: white;
+			// 	position: absolute;
+			// 	bottom: 100%;
+			// 	left: 50%;
+			// 	transform: translate(-50%, -10px);
+			// }	
 
-			&:after{
-				content: "\201C";
+			// &:after{
+			// 	content: "\201C";
 				
-				display: flex;
-				align-items:center;
-				justify-content:center;
+			// 	display: flex;
+			// 	align-items:center;
+			// 	justify-content:center;
 
-				line-height: 1em;
-				font-size: 20px;
-				font-family: $display-fonts;
+			// 	line-height: 1em;
+			// 	font-size: 20px;
+			// 	font-family: $display-fonts;
 
-				height: 30px;
-				width: 30px;
-				background: white;
-				color: $profile-background;
+			// 	height: 30px;
+			// 	width: 30px;
+			// 	background: white;
+			// 	color: $profile-background;
 
-				position: absolute;
-				bottom: 100%;
-				left: 50%;
-				transform: translate(-50%, -35px);
-				border-radius: 50%;
-			}
+			// 	position: absolute;
+			// 	bottom: 100%;
+			// 	left: 50%;
+			// 	transform: translate(-50%, -35px);
+			// 	border-radius: 50%;
+			// }
 		}
 	}
 
