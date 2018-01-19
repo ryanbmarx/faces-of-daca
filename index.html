@@ -1,12 +1,12 @@
 {% extends "_base.html" %}
 
-    {% macro cta(header, text=False, link, link_text, align_right=False) %}
-        <aside class='cta {% if align_right %}cta--right{% endif %}'>
-            {% if header %}<p class='cta__header'>{{ header }}</p>{% endif %}
-            {% if text %}<p class='cta__text'>{{ text }}</p>{% endif %}
-            <a class='cta__button' href="{{ link }}" target="_blank">{{ link_text }}</a>
-        </aside>
-    {% endmacro %}
+{% macro cta(header="Help support great journalism", text=False, link="#", link_text="Subscribe", align_right=False) %}
+    <aside class='cta {% if align_right %}cta--right{% endif %}'>
+        {% if header %}<p class='cta__header'>{{ header }}</p>{% endif %}
+        {% if text %}<p class='cta__text'>{{ text }}</p>{% endif %}
+        <a class='cta__button' href="{{ link }}" target="_blank">{{ link_text }}</a>
+    </aside>
+{% endmacro %}
 
 {% macro keep_scrolling(direction="down") %}
     {% if direction == 'down' %}
@@ -23,8 +23,6 @@
     {% if direction != 'down' %}
         </a>
     {% endif %}
-
-
 {% endmacro%}
 
 {% block content %}
@@ -48,6 +46,7 @@
                     <span class='headline__of'>of</span><br />
                     <span class='headline__daca'>daca</span>
                 </h1>#}
+                <h1 itemprop="headline" class="headline">Caught in a dream</h1>
                 <h2>{{ dek }}</h2>
                 <div class='byline'>
                     <p itemprop="author creator">
@@ -83,7 +82,7 @@
         {{ keep_scrolling() }}
     </section>
 
-    {{ cta("Please subscribe. It would help (text tk).", False, "#", "Subscribe!") }}
+    {{ cta(cta_subscribe_text, False, cta_subscribe_button_link, cta_subscribe_button_text) }}
 
     <section class='container container--content profiles'>
         {{ keep_scrolling('back') }}
@@ -113,7 +112,7 @@
             {% if credits %}{{ credits|markdown }}{% endif %}
         </div>
     </section>
-    {{ cta("Please subscribe. It would help (text tk).", False, "#", "Subscribe!") }}
+    {{ cta(cta_subscribe_text, False, cta_subscribe_button_link, cta_subscribe_button_text) }}
 {% endblock content %}
 
 {% block scripts %}
