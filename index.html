@@ -97,9 +97,7 @@
 
             {# Spit out a banner ad about every 10 profiles or so. #}
             {% if advert_counter > 10 and p.display_type == "solo" %}
-                <div class="advert" data-ad-type="leaderboard">
-                    <div style="height:50px;width:320px;"></div>
-                </div>
+                <div class="advert" data-ad-type="leaderboard"></div>
                 {% set advert_counter = 0 %}
             {% else %}
                 {% set advert_counter = advert_counter + 1%}
