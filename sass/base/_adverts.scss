@@ -1,4 +1,6 @@
-.advert{
+.container .advert{
+	// Containers have a little padding which squeezes things 
+	// on mobile. So we'll adjust for that here.
 	/*
 		The mobile banners are 320px wide. If the container has ANY
 		padding on it at all, then the banner will overflow the <body> on
@@ -8,6 +10,13 @@
 	*/
 
 	margin:$grid-gap #{0 - $container_padding_h};
+}
+
+
+.advert{
+	// Defauilt style on adverts has no horiz margin. You'll need to adjust
+	// for spacing peculiarities yourself. Blah!
+	margin:$grid-gap 0;
 	text-align: center; // center the iframe within the container.
 	&:before{
 		content: "Advertisement";
