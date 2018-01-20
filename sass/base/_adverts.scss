@@ -18,6 +18,8 @@
 	// for spacing peculiarities yourself. Blah!
 	margin:$grid-gap 0;
 	text-align: center; // center the iframe within the container.
+	box-sizing: border-box;
+	
 	&:before{
 		content: "Advertisement";
 		font: 12px/1em sans-serif;
@@ -35,7 +37,7 @@
 	// This is the breakpoint when the mini banners become cubes.
 	.advert{
 		&[data-ad-type="leaderboard"], &[data-ad-type="banner"]{
-			// margin:15px 0;
+			width: 100%;
 		}
 
 		&[data-ad-type="shrinky-cube"]{
