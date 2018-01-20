@@ -19,10 +19,10 @@
     
     {% block prefetch %}
         {# TODO: Check on preconnect, dns-prefetch #}
-   {#      <link rel="dns-prefetch" href="//static.chartbeat.com">
+        <link rel="dns-prefetch" href="//static.chartbeat.com">
         <link rel="dns-prefetch" href="//www.google-analytics.com">
         <link rel="dns-prefetch" href="http://ssor.tribdss.com">
-        <link rel="dns-prefetch" href="http://www.tribdss.com"> #}
+        <link rel="dns-prefetch" href="http://www.tribdss.com">
     {% endblock prefetch %}
 
     {% block preconnect %}
@@ -76,10 +76,10 @@
     {% block library_scripts %}{% endblock library_scripts %}
     
     {% block adverts %}
-    {# For the adverts #}
-{#     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//media.apps.chicagotribune.com/ads/v2.1.4/ads.min.js" defer async></script>
- #}    {% endblock adverts %}
+        {# For the adverts #}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//media.apps.chicagotribune.com/ads/v2.1.4/ads.min.js" defer async></script>
+    {% endblock adverts %}
 
     {% block meter %}
         {# Must come after jQuery #}
