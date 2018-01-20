@@ -1,17 +1,23 @@
 .advert{
-	margin:10px #{0 - $container_padding_h};
-	&[data-ad-type="leaderboard"], &[data-ad-type="banner"]{
-		
+	/*
+		The mobile banners are 320px wide. If the container has ANY
+		padding on it at all, then the banner will overflow the <body> on
+		smallest devices and that is not good. So, we will pull it to the 
+		left equal to the padding, so on iPhones the banner is effectively 
+		fullwidth.
+	*/
+
+	margin:$grid-gap #{0 - $container_padding_h};
+	text-align: center; // center the iframe within the container.
+	&:before{
+		content: "Advertisement";
+		font: 12px/1em sans-serif;
+		color: #888;
+		text-align: center;
+		display: block;
+		margin-bottom: 5px;
 	}
 
-	&[data-ad-type="shrinky-cube"]{
-		// width: 300px;
-
-		&.advert--right{
-			// float:right;
-			// margin: 0 0 25px 25px;
-		}
-	}
 }
 
 
@@ -20,7 +26,7 @@
 	// This is the breakpoint when the mini banners become cubes.
 	.advert{
 		&[data-ad-type="leaderboard"], &[data-ad-type="banner"]{
-			margin:#{$grid-gap} auto;
+			// margin:15px 0;
 		}
 
 		&[data-ad-type="shrinky-cube"]{
@@ -28,12 +34,7 @@
 
 			&.advert--right{
 				float:right;
-				margin: 0 0 $grid-gap $grid-gap;
-			}
-
-			&.advert--left{
-				float:left;
-				margin: 0 $grid-gap $grid-gap 0;
+				margin: 0 0 #{$grid-gap} #{$grid-gap};
 			}
 		}
 	}
