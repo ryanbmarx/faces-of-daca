@@ -73,21 +73,32 @@
         <meta name="twitter:creator" content="@chitribgraphics" />
     {% endblock twitter %}
 
-    {% block library_scripts %}
-    {# FORGET WHAT THIS IS FOR #}
-    <script src="//ssor.tribdss.com/reg/tribune/chinews-apps.min.js"></script>
+    {% block library_scripts %}{% endblock library_scripts %}
     
-    {# METER #}
-    <script type="text/javascript" src="//www.tribdss.com/meter/ctcngux.min.js" defer async></script>
-    
+    {% block adverts %}
     {# For the adverts #}
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//media.apps.chicagotribune.com/ads/v2.1.4/ads.min.js" defer async></script>
+    {% endblock adverts %}
+
+    {% block meter %}
+        {# Must come after jQuery #}
+        {# Will not load anything on local. #}
+        {% if BUCKET_NAME == "staging" %}
+            {#  METER for Staging #}
+            <script src="//ssor.trb.stage.tribdev.com/reg/tribune/chinews-apps.min.js" async></script>
+            <script src="//www.dss.trb.stage.tribdev.com/meter/chinews-apps.min.js" async></script> 
+        {% elif BUCKET_NAME == "production" %}
+            {# METER for Production #}
+            <script src="//ssor.tribdss.com/reg/tribune/chinews-apps.min.js" async></script>
+            <script src="//www.tribdss.com/meter/chinews-apps.min.js" async></script>
+        {% endif %}
+    {% endblock meter %}
+
 
     <script>
         window.ROOT_URL = "http://{{ ROOT_URL }}";
     </script>
-    {% endblock %}
 
     {% block omniture_config %}
         {# OMNITURE #}
@@ -117,12 +128,14 @@
     <div style="display:none;height:0;visibility:invisible;">
         {% include 'img/sprite.svg' ignore missing %}
     </div>
+ 
     {% block nav scoped%}{% include "subtemplates/_navbar.html" %}{% endblock %}
 
     {% block content %}{% endblock content %}
+
     {% block comments %}
+        {# Requires the meter to work, thus it will not load on local. #}
         {% include 'subtemplates/_solid-opinion-comments.html' %}
-        
     {% endblock comments %}
 
 
