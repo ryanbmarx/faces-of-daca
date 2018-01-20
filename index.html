@@ -1,4 +1,4 @@
-{% extends "_base.html" %}
+{% extends "_new-base.html" %}
 
 {% macro cta(header="Help support great journalism", text=False, link="#", link_text="Subscribe", align_right=False) %}
     <aside class='cta {% if align_right %}cta--right{% endif %}'>
@@ -27,7 +27,7 @@
 
 {% block content %}
 {# <div class="advert top-ad" data-ad-type="leaderboard"></div> #}
-    <section id='intro' class='container intro'>
+    <section id='intro' class='intro'>
         <div class='intro__video'>
             <video
                 autoplay muted loop playsinline
@@ -41,11 +41,6 @@
         </div>
         <div class='headline-wrapper'>
             
-{#                 <h1 itemprop="headline" class="headline">
-                    <span class='headline__faces'>faces</span>
-                    <span class='headline__of'>of</span><br />
-                    <span class='headline__daca'>daca</span>
-                </h1>#}
                 <h1 itemprop="headline" class="headline">Caught in a dream</h1>
                 <h2>{{ dek }}</h2>
                 <div class='byline'>
@@ -65,26 +60,30 @@
                     <time itemprop="dateModified" datetime="{{ date_mod }}"content="{{ date_mod|xldate_to_datetime }}">PUBLISHED: {{ date_mod|xldate_to_datetime|format_date_with_strftime("%B %-d, %Y") }}</time>
                 </div>
             </div>
-            <div class='river intro__text'>
-            <div class="advert advert--right" style='background:yellow'data-ad-type="shrinky-cube"></div>
-            {{intro|markdown}}
-            
-            <div class="video">
-            <video
-                data-account="3690581440001"
-                data-player="S1vBkbMfe"
-                data-embed="default"
-                data-video-id="ref:95675321"
-                class="video-js"
-                controls></video>
+            <div class='container'>
+                <div class='river intro__text'>
+                    <div class="advert advert--right" data-ad-type="shrinky-cube"></div>
+                    {{intro|markdown}}
+                   {#  <div class="advert" data-ad-type="leaderboard">
+                        <div style="display:inline-block;background: tan;height:50px;width:320px;"></div>
+                    </div> #}
+                    <div class="video">
+                    <video
+                        data-account="3690581440001"
+                        data-player="S1vBkbMfe"
+                        data-embed="default"
+                        data-video-id="ref:95675321"
+                        class="video-js"
+                        controls></video>
+                </div>
             </div>
+            {{ keep_scrolling() }}
         </div>
-        {{ keep_scrolling() }}
     </section>
 
     {{ cta(cta_subscribe_text, False, cta_subscribe_button_link, cta_subscribe_button_text) }}
 
-    <section class='container container--content profiles'>
+    <section class='profiles'>
         {{ keep_scrolling('back') }}
         <h3 class='profiles__header'>{{ profiles_header }}</h3>
         {% set advert_counter = 0 %}
@@ -98,7 +97,9 @@
 
             {# Spit out a banner ad about every 10 profiles or so. #}
             {% if advert_counter > 10 and p.display_type == "solo" %}
-                <div style='background:yellow' class="advert" data-ad-type="leaderboard"></div>
+                <div class="advert" data-ad-type="leaderboard">
+                    <div style="height:50px;width:320px;"></div>
+                </div>
                 {% set advert_counter = 0 %}
             {% else %}
                 {% set advert_counter = advert_counter + 1%}
