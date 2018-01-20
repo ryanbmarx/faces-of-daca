@@ -74,13 +74,13 @@ body{
 
 .intro{
 	// background: #111;
-	padding: 0;
+	// padding: 0;
 	color:white;
 	position: relative;
 	z-index: 10; // To float intro over the back-to-top buttons
 	&__text{
 		margin-top: $grid-gap;
-		padding: $grid-gap;
+		padding: $grid-gap 0;
 		box-sizing:border-box;
 	}
 
@@ -111,7 +111,7 @@ body{
 	align-content: center;
 	// position:relative;
 	box-sizing:border-box;
-	padding: 0 #{$grid-gap * 2};
+	padding: 0 #{$grid-gap};
 	// max-width: 500px;
 
 	background: black url(../img/mobile-poster.jpg) center center;
@@ -126,23 +126,6 @@ body{
 	font-style: italic;
 	font-family: $display-fonts;
 	margin: 0 0 $grid-gap 0;
-
-	&__faces{
-		width: 100%;
-		font-size: 130px;
-		// font-weight: normal;
-		// font-style: italic;
-	}
-	&__of{
-		font-size: 35px;
-		transform: translate(0,-8px);
-	}
-
-	&__daca{
-		font-size: 130px;
-		text-transform: uppercase;
-		line-height: .59em;
-	}
 }
 
 .video{
@@ -163,7 +146,7 @@ body{
 }
 
 .container--content{
-	padding:0;
+	// padding:0;
 }
 
 
@@ -225,7 +208,7 @@ body{
 	.headline-wrapper{ 
 		background: none; 
 		max-width: $headline-max-width;
-
+		padding: 0 #{$grid-gap * 2};
 
 
 	}
