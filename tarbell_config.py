@@ -116,5 +116,5 @@ S3_BUCKETS = {
 # Default template variables
 DEFAULT_CONTEXT = {
     'name': 'faces-of-daca',
-    'title': 'Faces of DACA'
+    'title': 'Caught in a "Dream"'
 }
