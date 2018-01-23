@@ -1,4 +1,6 @@
 
+
+
 .social-networks{
 	list-style:none;
 	padding: 0;
@@ -12,7 +14,7 @@
 }
 
 .network{
-	width: 25px;
+	width: $social-icon-width;
 	margin: 0 15px 0 0;
 	cursor:pointer;
 	

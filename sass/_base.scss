@@ -33,6 +33,7 @@ $navbar-overall-height: $navbar_inner_height + $navbar_padding_v + $navbar_paddi
 
 // SOCIAL SHARE ICONS
 $social_icon_base_color: $trib-gray3 !default;
+$social-icon-width: 25px !default;
 $social_colors: (
 	twitter: #76A9EA,
 	facebook: #475993,
