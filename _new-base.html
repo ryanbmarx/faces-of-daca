@@ -11,7 +11,7 @@
         {% set url = "http://" ~ ROOT_URL ~ "/" ~ PATH %}
         <link rel="canonical" href="{{ url }}" />
         {# <link rel="shortcut icon" href="img/favicon{% if PREVIEW_SERVER %}-preview{% endif %}.ico" /> #}
-        <title>{{ title }} -- Chicago Tribune</title>
+        {% block title %}<title>{{ title }} -- Chicago Tribune</title>{% endblock title %}
     
         {# TODO: CHeck on google site verification #}
         <meta name="google-site-verification" content="TKTKTK">
