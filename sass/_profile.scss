@@ -47,7 +47,7 @@
 	
 	&__name{
 		// @include serif-text(25px, 1.3em, normal)
-		@include responsive-font(3vw, 18px, 30px, 30px);
+		@include responsive-font(3vw, 30px, 50px, 30px);
 		font-family: $display-fonts;
 	    line-height: 1em;
 		color: white;
