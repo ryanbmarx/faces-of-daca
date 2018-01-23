@@ -215,8 +215,36 @@
 		.profile__quote{
 			transform: translate(0, -50%);
 			max-width: none;
-			padding: $grid-gap 0;
+			padding: $grid-gap;
 		}
+
+		.profile__quote{
+			// margin: 0 0 70vh 0;
+		    // z-index: 1000;
+		    position: relative;
+			// max-width: 60%;
+			
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+
+	        background: rgba(0,0,0,.5);
+			padding: 20px;
+
+			p { margin: 0;}
+
+			&-icon{
+				// TODO: Pulse animation
+				margin-right: $grid-gap / 2;
+
+
+				svg{
+					width: 75px;
+					height: 75px;
+				}
+			}
+		}
+
 	}
 }
 
