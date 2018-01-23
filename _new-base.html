@@ -83,7 +83,7 @@
 
     {% block meter %}
         {# Must come after jQuery #}
-        {# Will not load anything on local. #}
+        {# Will not load anything on local by the logic below. #}
         {% if BUCKET_NAME == "staging" %}
             {#  METER for Staging #}
             <script src="//ssor.trb.stage.tribdev.com/reg/tribune/chinews-apps.min.js" async></script>
@@ -149,11 +149,13 @@
     
     {% block scripts %}
     <script>
+        if (document.getElementById('comments-button')){
             document.getElementById('comments-button').addEventListener('click', function(e){
-            document.querySelector(`.trb_cm_so[data-role="cm_container"]`).style.maxHeight = "10000000vh";
-            (window.registration || (registration = [])).push('solidopinion');
+                document.querySelector(`.trb_cm_so[data-role="cm_container"]`).style.maxHeight = "10000000vh";
+                (window.registration || (registration = [])).push('solidopinion');
             }, false);
-        </script>
+        }
+    </script>
     {% endblock scripts %}
 
     {% block chartbeat %}
