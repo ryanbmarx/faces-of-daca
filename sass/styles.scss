@@ -55,11 +55,7 @@ $cta-button-base-color: #888;
 		transform:translate(0, 0)
 	}
 }
-
-
 @import 'base';
-
-
 
 // ---- IMPORT PROJECT STYLES FROM PARTIAL FILES HERE ---------------------------------------------
 @import 'profile';
@@ -122,13 +118,20 @@ body{
 }
 
 .headline{
-	@include responsive-font(6vw, 35px, 80px, 50px);
+	@include responsive-font(6vw, 50px, 80px, 50px);
 	color:white;
 	font-weight: normal;
 	font-style: italic;
 	font-family: $display-fonts;
-	margin: 0 0 $grid-gap 0;
+	margin: 0 0 #{$grid-gap / 2} 0;
 }
+
+.subheadline{
+	@include serif-text(20px, 1.5em, bold);
+	margin: 0 0 #{$grid-gap / 2} 0;
+	color: white;
+}
+
 
 .video{
 	// The main p2p video embed
