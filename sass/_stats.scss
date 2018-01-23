@@ -22,21 +22,26 @@ $stats_text: $trib_gray4;
 	}
 
 	&__source {
-		font-style: italic;
+		@include agate();
 		color: $stats_text;
+	}
+
+	&__inner{
+		max-width: 650px;
+		margin: 0 auto;
 	}
 }
 
-.graphic-wrapper {
+.chart-wrapper {
 	display: block;
 	margin: 10px 0 10px 0;
 }
 
-.big-graphic {
+.big-chart {
 	margin: auto;
 }
 
-.graphic {
+.chart {
 	margin: 0 0 20px 0;
 }
 
