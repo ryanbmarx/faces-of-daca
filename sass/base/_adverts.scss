@@ -19,6 +19,7 @@
 	margin:$grid-gap 0;
 	text-align: center; // center the iframe within the container.
 	box-sizing: border-box;
+	width: 100%;
 	
 	&:before{
 		content: "Advertisement";
