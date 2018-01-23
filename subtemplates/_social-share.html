@@ -12,9 +12,9 @@
 {# %23 is the url-encoded hash tag #}
 {% set target_url = "http://" + ROOT_URL + "%23" + p.id %}
 
-{% set person_name = p.name_first + " " + p.name_last %}
+{% set person_name = p.name_first|capitalize + " " + p.name_last|capitalize %}
 
-{% set share_sentence = "Meet " + p.name_first + " " + p.name_last + ", one of dozens of Chicago dreamers interviewed by the Chicago Tribune. " + p.name_first + " came to the U.S. at age " ~ p.age_arrived %}
+{% set share_sentence = person_name|capitalize + " " + share_sentence_fragment %}
 
 {% set networks = [
 	{
