@@ -1,23 +1,20 @@
 <div class='stats'>
-	<div class='stats__inner'>
-		<h4 class='stats__hed'>{{stats.hed.blurb}}</h4>
-		<div class='stats__blurbs'>
-			{{stats.a.blurb|markdown}}
-			<div class='chart-wrapper'>
-				<div class='chart'>
-					{% include 'ai/ai2html-output/mexico.html' %}
-				</div>
-				{{stats.b.blurb|markdown}}
+	<h4 class='stats__hed'>{{stats.hed.blurb}}</h4>
+	<div class='stats__blurbs'>
+		{{stats.a.blurb|markdown}}
+		<div class='graphic-wrapper'>
+			<div class='big-graphic'>
+				{% include 'ai/ai2html-output/origin.html' %}
 			</div>
-			<div class='chart-wrapper'>
-				{{stats.c.blurb|markdown}}
-				<div class='chart'>
-					{% include 'ai/ai2html-output/us.html' %}
-				</div>
-			</div>
-			{{stats.d.blurb|markdown}}
-			{{stats.e.blurb|markdown}}
 		</div>
-		<p class='stats__source'>{{stats.source.blurb}}</p>
+		{{stats.b.blurb|markdown}}
+		<div class='graphic-wrapper'>
+			{{stats.c.blurb|markdown}}
+			<div class='graphic'>
+				{% include 'ai/ai2html-output/us.html' %}
+			</div>
+		</div>
+		{{stats.d.blurb|markdown}}
 	</div>
+	<p class='stats__source'>{{stats.source.blurb}}</p>
 </div>
