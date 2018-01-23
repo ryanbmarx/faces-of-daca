@@ -3,11 +3,11 @@
 	<div class='stats__blurbs'>
 		{{stats.a.blurb|markdown}}
 		<div class='graphic-wrapper'>
-			<div class='graphic'>
-				{% include 'ai/ai2html-output/mexico.html' %}
+			<div class='big-graphic'>
+				{% include 'ai/ai2html-output/origin.html' %}
 			</div>
-			{{stats.b.blurb|markdown}}
 		</div>
+		{{stats.b.blurb|markdown}}
 		<div class='graphic-wrapper'>
 			{{stats.c.blurb|markdown}}
 			<div class='graphic'>
@@ -15,7 +15,6 @@
 			</div>
 		</div>
 		{{stats.d.blurb|markdown}}
-		{{stats.e.blurb|markdown}}
 	</div>
 	<p class='stats__source'>{{stats.source.blurb}}</p>
 </div>

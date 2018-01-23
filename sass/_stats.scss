@@ -32,13 +32,34 @@ $stats_text: $trib_gray4;
 	margin: 10px 0 10px 0;
 }
 
+.big-graphic {
+	margin: auto;
+}
+
+.graphic {
+	margin: 0 0 20px 0;
+}
+
+#g-origin-desktop {
+	display: none;
+}
+
 @media all and (min-width: $tablet-min-width) {
+
+	#g-origin-desktop {
+		display: block;
+	}
+
+	#g-origin-mobile {
+		display: none;
+	}
+
 	.graphic-wrapper {
 		display: flex;
 		align-items: center;
 	}
 
 	.graphic {
-		margin-right: 20px;
+		margin: 0 20px 0 0;
 	}
 }
