@@ -1,12 +1,18 @@
 $stats_text: $trib_gray4;
 
 .stats {
+	box-sizing:border-box;
+	width: 100%;
 	background-color: $trib_gray1;
-	padding: 20px;
-	width: 80%;
-	margin: auto;
+	padding: $grid-gap; // We use this variable so all gaps and spacingss are regular
+	margin: $grid-gap 0;
 	border-radius: 20px;
-	//border: 2px solid white;
+
+	&__inner{
+		// Keep text at readable widths
+		max-width: 650px;
+		margin: 0 auto;
+	}
 
 	&__blurbs p {
 		color: $stats_text;
@@ -14,31 +20,32 @@ $stats_text: $trib_gray4;
 
 	&__hed {
 		color: $stats_text;
-		font-family: $display-fonts;
-		font-size: 30px;
+		font: 30px/1.3em #{$display-fonts};
+		// font-family: $display-fonts;
+		// font-size: 30px;
 		font-style: italic;
 		margin: 0 0 20px 0;
 		text-align: center;
 	}
 
 	&__source {
-		font-style: italic;
+		@include agate();
 		color: $stats_text;
 	}
 }
 
-.graphic-wrapper {
+.chart-wrapper {
 	display: block;
 	margin: 10px 0 10px 0;
 }
 
 @media all and (min-width: $tablet-min-width) {
-	.graphic-wrapper {
+	.chart-wrapper {
 		display: flex;
 		align-items: center;
 	}
 
-	.graphic {
+	.chart {
 		margin-right: 20px;
 	}
 }
