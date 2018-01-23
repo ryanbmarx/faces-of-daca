@@ -30,6 +30,7 @@ $navbar_padding_v: 10px !default;
 $border-radius--small: 5px;
 $border-radius--large: $grid-gap / 2;
 $navbar-overall-height: $navbar_inner_height + $navbar_padding_v + $navbar_padding_v;
+$hamburger-background-color: rgba($trib-blue1, .9) !default;
 
 // SOCIAL SHARE ICONS
 $social_icon_base_color: $trib-gray3 !default;
