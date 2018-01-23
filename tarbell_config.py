@@ -70,6 +70,15 @@ def xldate_to_datetime(xldate):
 def format_date_with_strftime(date_to_format, format):
     return date_to_format.strftime(format)
 
+@blueprint.app_template_filter('get_age_article')
+def get_age_article(age):
+    """
+    Takes an age and determines the proper article to precede it.
+    i.e. 18 => *an* 18-year-old or 12 => *a* 12-year-old
+    """
+    if(age == 8 or age == 18 or (age < 90 and age >= 80)):
+        return "an"
+    return "a"
 
 # Google spreadsheet key
 SPREADSHEET_KEY = "1t8-JGai_adp4dzj8wO4KvvDrFYd8ThRHdwQOsFXZScE"
@@ -100,7 +109,7 @@ S3_BUCKETS = {
     #     "mytarget": "mys3url.bucket.url/some/path"
     # then use tarbell publish mytarget to publish to it
     
-    "production": "graphics.chicagotribune.com/faces-of-daca",
+    "production": "graphics.chicagotribune.com/daca-caught-in-a-dream",
     "staging": "apps.beta.tribapps.com/faces-of-daca",
 }
 

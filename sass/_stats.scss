@@ -24,6 +24,7 @@ $stats_text: $trib_gray4;
 	&__source {
 		@include agate();
 		color: $stats_text;
+		margin-bottom: #{$grid-gap * 1.5};
 	}
 
 	&__inner{

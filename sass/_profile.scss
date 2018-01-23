@@ -133,7 +133,7 @@
 			z-index: 100;
 		    position: relative;
 		    text-shadow: 0 0 3px rgba(black, .9);
-	        max-width: 40%;
+	        max-width: 300px;
 	        text-align: left;
 		}
 
@@ -174,8 +174,8 @@
 			align-items: flex-start;
 			justify-content: space-between;
 
-	        background: rgba(0,0,0,.5);
-			padding: 20px;
+	        // background: rgba(0,0,0,.5);
+			padding: 15px;
 
 			p { margin: 0;}
 
@@ -188,6 +188,24 @@
 					width: 75px;
 					height: 75px;
 				}
+			}
+
+			&:after{
+				// Give a blurry shadow behind the text to aid readability
+				content:"";
+				display:block;
+				height: 100%;
+				width: 100%;
+				background: rgba(0,0,0,.35);
+				padding: 20px;
+				border-radius: 3em;
+		        filter: blur(10px);
+				
+				z-index: -1;
+		        position: absolute;
+		        top: 0;
+		        left: 0;
+
 			}
 		}
 	}
@@ -228,8 +246,9 @@
 			align-items: flex-start;
 			justify-content: space-between;
 
-	        background: rgba(0,0,0,.5);
+	        background: rgba(0,0,0,.35);
 			padding: 20px;
+			border-radius: 3em;
 
 			p { margin: 0;}
 
