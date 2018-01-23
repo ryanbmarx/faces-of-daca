@@ -58,6 +58,7 @@
                     </p>
                     <meta itemprop="datePublished" datetime="{{ date_pub|xldate_to_datetime }}" content="{{ date_pub|xldate_to_datetime }}">
                     <time itemprop="dateModified" datetime="{{ date_mod }}"content="{{ date_mod|xldate_to_datetime }}">PUBLISHED: {{ date_mod|xldate_to_datetime|format_date_with_strftime("%B %-d, %Y") }}</time>
+                    {% include "subtemplates/_social-share-generic.html" %}
                 </div>
             </div>
             <div class='container'>
