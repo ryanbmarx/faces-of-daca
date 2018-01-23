@@ -79,6 +79,7 @@ body{
 	color:white;
 	position: relative;
 	z-index: 10; // To float intro over the back-to-top buttons
+	text-shadow: 3px 3px 3px rgba(0,0,0,.5);
 	&__text{
 		margin-top: $grid-gap;
 		padding: $grid-gap 0;
@@ -212,6 +213,10 @@ body{
 		padding: 0 #{$grid-gap * 2};
 	}
 	
+	.intro{
+		text-shadow: none;
+	}
+
 	.intro__video{
 
 		width: 100%;
