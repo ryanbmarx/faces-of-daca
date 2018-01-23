@@ -1,6 +1,6 @@
 {% extends "_new-base.html" %}
 
-{% macro cta(header="Help support great journalism", text=False, link="#", link_text="Subscribe", align_right=False) %}
+{% macro cta(header="Help support great journalism", text=False, link="https://checkout.chicagotribune.com/subscriptionPanel/?presentation=MTRDigital&PID=6354&zipCode=00000&int=ct_digitaladshouse_4-weeks-99_acquisition-subscriber_ngux_text-link_editorial_______multimedia-all", link_text="Subscribe", align_right=False) %}
     <aside class='cta {% if align_right %}cta--right{% endif %}'>
         {% if header %}<p class='cta__header'>{{ header }}</p>{% endif %}
         {% if text %}<p class='cta__text'>{{ text }}</p>{% endif %}
@@ -41,7 +41,7 @@
         </div>
         <div class='headline-wrapper'>
             
-                <h1 itemprop="headline" class="headline">Caught in a dream</h1>
+                <h1 itemprop="headline" class="headline">{{ headline|process_text }}</h1>
                 <h2>{{ dek }}</h2>
                 <div class='byline'>
                     <p itemprop="author creator">
