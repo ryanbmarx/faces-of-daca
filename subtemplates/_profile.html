@@ -34,7 +34,7 @@
     <div class='profile__text'>
         {% include 'subtemplates/_social-share.html' %}
         <h4 class='profile__name'>{{ p.name_first }} {{ p.name_last }}</h4>
-        <p class='profile__age'>is {{ p.age|get_age_article }} {{ p.age }}-year-old {{ p.current_occupation }}. {{ p.name_first|capitalize }} came to the United States from {{ p.country }} at age {{ p.age_arrived }}.</p>
+        <p class='profile__age'>is {{ p.age|get_age_article }} {{ p.age }}-year-old {{ p.current_occupation }}. {{ p.pronoun|capitalize }} came to the United States from {{ p.country }} at age {{ p.age_arrived }}.</p>
         {% if p.quote and p.display_type != "solo" %}
         
         {{ quote(p) }}{#     <blockquote class='profile__quote'>
