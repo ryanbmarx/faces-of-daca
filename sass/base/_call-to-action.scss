@@ -10,7 +10,7 @@
 	
 
 	&__header{
-		@include label5();
+		@include serif-text(20px, 1.3em, bold);
 		margin: 0;
 		color: $cta-text-color;
 	}
@@ -54,6 +54,10 @@
 	// ONLY CHANGES FOR TABLETS + DESKTOPS	
 	.cta{
 		$and: &;
+		&__header{
+			font-size: 25px;
+		}
+		
 		&:not(.cta--right){
 			display:flex;
 			align-items: center;
