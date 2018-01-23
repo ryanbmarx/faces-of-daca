@@ -26,7 +26,7 @@ function generateImageList(files){
 	var retval = [];
 
 	var desiredFileTypes = [
-		"jpg", "jpeg", "png"
+		"jpg", "jpeg", "png", "JPG", "JPEG", "PNG"
 	];
 
 	files.forEach(function(fileName, i, a){
