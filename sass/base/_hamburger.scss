@@ -1,0 +1,38 @@
+$hamburger-background-color: $trib-blue1 !default;
+
+.burger{
+	list-style: none;
+	padding: $container_padding_h;
+	margin: 0;
+	box-sizing: border-box;
+	// width: 100%;
+	max-width: 320px;
+	background:$hamburger-background-color;
+
+	position:absolute;
+	left: auto;
+	right: 100%;
+	top: $navbar-overall-height;
+	z-index: 1000;
+
+	transition: left 150ms ease;
+
+	li {
+		margin: 0 0 #{$grid-gap / 2};
+
+		&:last-child{
+			margin: 0;
+		}
+
+		a{
+			@include sans-serif();
+			margin: 0;
+		}
+	}
+}
+
+.burger--visible{
+	left: 0;
+	right: auto;
+	transition: left 150ms ease;
+}

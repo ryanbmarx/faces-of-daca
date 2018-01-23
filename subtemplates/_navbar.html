@@ -1,6 +1,12 @@
+<script type="text/javascript">
+	function toggleBurger(){
+		document.querySelector('.burger').classList.toggle('burger--active')
+	}
+</script>
+
 <nav class='navbar'>
 	<div class='container'>
-	    <button id='nav-toggle' type="button" class="navbar__toggle" >
+	    <button id='nav-toggle' type="button" class="navbar__toggle" onclick=" document.querySelector('.navbar__burger.burger').classList.toggle('burger--visible');">
 	    	<span class='navbar__toggle-flex'>
 		        <span class="sr-only">Toggle navigation</span>
 		        <span class="icon-bar"></span>
@@ -21,3 +27,4 @@
     	</div>
 	</div>
 </nav>
+{% include "subtemplates/_hamburger-nav.html" %}
