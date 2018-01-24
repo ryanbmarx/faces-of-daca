@@ -17,6 +17,10 @@
         <meta name="google-site-verification" content="TKTKTK">
     {% endblock meta %}
     
+    {% block favicon %}
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    {% endblock %}
+
     {% block prefetch %}
         {# TODO: Check on preconnect, dns-prefetch #}
         <link rel="dns-prefetch" href="//static.chartbeat.com">
